@@ -1,0 +1,240 @@
+.accessory-view {
+    display: flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    flex-wrap: wrap;
+}
+
+.accessory-view-left {
+    display: flex;
+    gap: 10px;
+    flex-direction: row; /* Arrange side images vertically */
+}
+
+.accessory-view-img-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* Center-align side images */
+}
+
+.accessory-view-img-list img {
+    width: 140px; /* Smaller width for side images */
+    height: 168px; /* Proportional height */
+    cursor: pointer;
+    object-fit: cover; /* Ensure proper cropping */
+}
+
+.accessory-view-main-image {
+    overflow: hidden;
+    width: 520px; /* 4 x width of side images */
+    height: 700px; /* Equal to combined height of four side images */
+    transition: transform 0.5s ease-in-out;
+    object-fit: cover;
+}
+
+.accessory-view-main-image.slide {
+    animation: slideIn 0.5s forwards;
+}
+
+.accessory-view-img {
+    overflow: hidden;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.accessory-view-right {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Take available space */
+}
+
+.accessory-view-right h1 {
+    color: #3d3d3d;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.accessory-view-right-star {
+    display: flex;
+    align-items: center;
+    margin-top: 13px;
+    gap: 5px;
+    color: #1c1c1c;
+    font-size: 16px;
+}
+
+.accessory-view-right-prices {
+    display: flex;
+    margin: 40px 0;
+    gap: 30px;
+    font-size: 24px;
+    font-weight: 700;
+    flex-wrap: wrap;
+}
+
+.accessory-view-right-price-old {
+    color: #818181;
+    text-decoration: line-through;
+}
+
+.accessory-view-right-price-new {
+    color: #ff4141;
+}
+
+.accessory-view-right-size h1 {
+    margin-top: 45px;
+    color: #656565;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.accessory-view-right-sizes {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    margin: 35px 0;
+    /* gap: 20px; */
+    flex-wrap: wrap;
+}
+
+.accessory-view-right-sizes div {
+    padding: 12px 20px;
+    background: #fbfbfb;
+    border: 1px solid #bfbfbf;
+    /* border-radius: 3px; */
+    cursor: pointer;
+    margin-right: -1px;
+}
+
+.accessory-view-right-sizes .chrome {
+    background: #ff4141;
+    color: #fff;
+}
+
+
+.accessory-view-right .buy-now {
+    width: 100%;
+    padding: 13px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: #ff5e00;
+    border: none;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    outline: none;
+}
+
+.accessory-view-right-category {
+    margin-top: 10px;
+}
+
+.accessory-view-right-category span {
+    font-weight: 600;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .accessory-view {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .accessory-view-main-image {
+        width: 100%; /* Adjust for smaller screens */
+        height: auto;
+    }
+
+    .accessory-view-right {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .accessory-view-left {
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .accessory-view-img-list img {
+        width: 80px; /* Smaller for tablets */
+        height: 120px;
+    }
+
+    .accessory-view-main-image {
+        width: 320px;
+        height: 480px;
+    }
+
+    .accessory-view-right h1 {
+        font-size: 32px;
+    }
+
+    .accessory-view-right-prices {
+        gap: 20px;
+        font-size: 20px;
+    }
+
+    .accessory-view-right-sizes div {
+        padding: 10px 15px;
+    }
+
+    .accessory-view-right button,
+    .accessory-view-right .buy-now {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .accessory-view {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .accessory-view-left {
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .accessory-view-img-list img {
+        width: 60px;
+        height: 90px;
+    }
+
+    .accessory-view-main-image {
+        width: 240px;
+        height: 360px;
+    }
+
+    .accessory-view-right h1 {
+        font-size: 28px;
+    }
+
+    .accessory-view-right-prices {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .accessory-view-right-sizes div {
+        padding: 8px 10px;
+    }
+
+    .accessory-view-right button,
+    .accessory-view-right .buy-now {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}

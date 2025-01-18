@@ -1,0 +1,100 @@
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Buttons for Slider */
+.slider-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.slider-btn:hover {
+    background-color: #282828;
+}
+
+.left-btn,
+.right-btn {
+    margin-right: 10px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+/* Ensure the shop-categories stay within bounds */
+.shop-categories {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    gap: 1rem; /* Space between items */
+    padding: 1rem; /* Add padding */
+    scrollbar-width: thin; /* Firefox scrollbar width */
+    scrollbar-color: #aaa transparent; /* Scrollbar colors */
+}
+
+.shop-categories::-webkit-scrollbar {
+    height: 8px; /* Height of horizontal scrollbar */
+}
+
+.shop-categories::-webkit-scrollbar-thumb {
+    background: #aaa; /* Scrollbar thumb color */
+    border-radius: 4px; /* Rounded edges */
+}
+
+.shop-categories::-webkit-scrollbar-track {
+    background: transparent; /* Scrollbar track background */
+}
+
+.shop-category-item {
+    flex: 0 0 auto; /* Prevent item from shrinking or stretching */
+    width: 170px; /* Fixed width for items */
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    gap: 20px;
+    flex-direction: column;
+    padding: 20px;
+    transition: all ease-in 0.25s;
+}
+
+.shop-category-item img {
+    width: 120px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.shop-category-item.active {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+    color: #2a2a2a;
+}
+
+#bike-model {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 7px 20px;
+    cursor: pointer;
+    border: 1px solid rgb(0, 106, 255);
+    outline: none;
+}
+
+#bike-model option {
+    cursor: pointer;
+}
+
+#title-ctg {
+    margin: 0 20px;
+    width: 240px;
+    padding: 10px;
+    border-bottom: 1px solid rgb(0, 76, 139);
+}
