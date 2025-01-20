@@ -27,25 +27,27 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // MongoDB Connection
 connectDB(mongo_url);
 
-// API Endpoints
-app.use("/api/accessory", accessoryRouter);
-app.use("/images", express.static('uploads'));
-app.use("/api/user", userRouter);
-app.use("/api/cart", cartRouter);
-app.use("/api/order", orderRouter);
-app.use("/api/category", categoryRouter);
-app.use("/api/nested-category", nestedCtgRouter); // Adjusted route to avoid conflicts
-app.use("/catupload", express.static('catupload'));
-
-// Deployment process starts here
+// Define __dirname for ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Serve Static Files for Images
+app.use('/images', express.static(path.join(__dirname, 'uploads')));
+app.use('/catupload', express.static(path.join(__dirname, 'catupload')));
 
 // Serve static files for the client frontend
 app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
 // Serve static files for the admin frontend
 app.use('/admin', express.static(path.join(__dirname, 'admin', 'dist')));
+
+// API Endpoints
+app.use('/api/accessory', accessoryRouter);
+app.use('/api/user', userRouter);
+app.use('/api/cart', cartRouter);
+app.use('/api/order', orderRouter);
+app.use('/api/category', categoryRouter);
+app.use('/api/nested-category', nestedCtgRouter);
 
 // Catch-all handler for client-side routing
 app.get('*', (req, res) => {
