@@ -42,7 +42,7 @@
 @media (max-width: 768px) {
     .search-bar {
         width: 100%;  /* Full width on smaller screens */
-        margin-top: 100px;  /* Adjust top margin for smaller screens */
+        margin-top: 120px;  /* Adjust top margin for smaller screens */
         height: 45px;
     }
 
@@ -55,7 +55,7 @@
 @media (max-width: 480px) {
     .search-bar {
         width: 100%;
-        margin-top: 80px;  /* Further reduce top margin on very small screens */
+        margin-top: 120px;  /* Further reduce top margin on very small screens */
     }
 
     .search-bar button {
