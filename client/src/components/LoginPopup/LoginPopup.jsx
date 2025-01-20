@@ -86,7 +86,7 @@ const LoginPopup = ({ setShowLogin }) => {
                         required
                     />
                 </div>
-                {currentState === "Sign Up" ? <GoogleSignup/> : <div></div>}
+                {currentState === "Sign Up" ? <div></div> : <div></div>}
                 
                 <button type="submit">
                     {currentState === "Sign Up" ? "Create Account" : "Login"}
