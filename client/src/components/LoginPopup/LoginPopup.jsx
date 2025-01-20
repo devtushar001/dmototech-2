@@ -3,7 +3,7 @@ import './LoginPopup.css';
 import { fassets } from "../../frontend_assets/assets";
 import { DochakiContext } from "../Context/Contact";
 import { toast } from "react-toastify";
-// import GoogleSignup from "./GoogleSignup";
+import GoogleSignup from "./GoogleSignup";
 
 const LoginPopup = ({ setShowLogin }) => {
     const [currentState, setCurrentState] = useState("Sign Up");
