@@ -7,7 +7,7 @@ const AboutUs = () => {
   return (
     <div className="about-us-container">
       <header className="about-us-header">
-          <img src={assets.logo_blur} alt="Dochaki Designs workshop" />
+        <img src={assets.logo_blur} alt="Dochaki Designs workshop" />
         <p>Your Trusted Partner in Motorcycle Modifications and Custom Parts</p>
       </header>
 

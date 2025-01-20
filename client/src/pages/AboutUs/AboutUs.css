@@ -1,12 +1,12 @@
-/* AboutUs.css */
+/* General Styles for About Us */
 .about-us-container {
   margin-top: 120px;
   font-family: 'Arial', sans-serif;
   padding: 40px;
-  /* background-color: #f4f4f4; */
 }
 
 .about-us-header {
+  width: 100%;
   text-align: center;
   margin-bottom: 40px;
 }
@@ -41,7 +41,11 @@
   color: #666;
 }
 
-.about-us-image img {
+.about-us-header {
+  max-width: 100%;
+}
+
+.about-us-header img {
   width: 100%;
   border-radius: 8px;
 }
@@ -103,4 +107,119 @@
   margin-top: 40px;
   font-size: 18px;
   color: #333;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and below (screen width less than or equal to 768px) */
+@media (max-width: 768px) {
+  .about-us-container {
+    padding: 20px;
+  }
+
+  .about-us-header h1 {
+    font-size: 28px;
+  }
+
+  .about-us-header p {
+    font-size: 16px;
+  }
+
+  .about-us-intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-us-text h2 {
+    font-size: 24px;
+  }
+
+  .about-us-text p {
+    font-size: 14px;
+  }
+  .about-us-image {
+    max-width: 768px;
+  }
+
+  .about-us-image img {
+    max-width: 80%;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .service-card h3 {
+    font-size: 18px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+  }
+
+  .about-us-brands img {
+    width: 100px;
+    margin: 0 10px;
+  }
+
+  .about-us-footer {
+    font-size: 16px;
+  }
+}
+
+/* For mobile devices (screen width less than or equal to 480px) */
+@media (max-width: 480px) {
+  .about-us-container {
+    padding: 10px;
+  }
+
+  .about-us-header h1 {
+    font-size: 24px;
+  }
+
+  .about-us-header p {
+    font-size: 14px;
+  }
+
+  .about-us-intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-us-text h2 {
+    font-size: 20px;
+  }
+
+  .about-us-text p {
+    font-size: 12px;
+  }
+
+  .about-us-image img {
+    width: 90%;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .service-card h3 {
+    font-size: 16px;
+  }
+
+  .service-card p {
+    font-size: 12px;
+  }
+
+  .about-us-brands img {
+    width: 80px;
+    margin: 0 8px;
+  }
+
+  .about-us-footer {
+    font-size: 14px;
+  }
 }
