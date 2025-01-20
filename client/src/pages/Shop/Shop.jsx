@@ -3,7 +3,6 @@ import './Shop.css';
 import { DochakiContext } from "../../components/Context/Contact";
 import ShopCategories from "../../components/ShopCategories/ShopCategories";
 import ShopAccessoryDisplay from "../../components/ShopAccessoryDisplay/ShopAccessoryDisplay";
-import { toast } from "react-toastify";
 
 const Shop = () => {
   const [category, setCategory] = useState('All');
@@ -58,7 +57,6 @@ const Shop = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search for an item..."
         />
-        <button onClick={() => setSearchQuery(searchQuery.trim())}>Search Item</button>
       </div>
       <hr />
 

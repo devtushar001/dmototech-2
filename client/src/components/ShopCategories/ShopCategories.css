@@ -98,3 +98,89 @@
     padding: 10px;
     border-bottom: 1px solid rgb(0, 76, 139);
 }
+
+/* Default button styles for larger screens */
+.slider-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+    padding: 20px;  /* Default larger padding */
+}
+
+.slider-btn:hover {
+    background-color: #282828;
+}
+
+.left-btn,
+.right-btn {
+    padding: 20px;  /* Default larger padding for the slider buttons */
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 18px;  /* Default font size for larger screens */
+}
+
+/* Sub-Category Dropdown Button (select) */
+#bike-model {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 10px 25px;  /* Default larger padding */
+    cursor: pointer;
+    border: 1px solid rgb(0, 106, 255);
+    outline: none;
+    font-size: 16px;  /* Default font size for larger screens */
+}
+
+#bike-model option {
+    cursor: pointer;
+    font-size: 16px;  /* Default font size for options */
+}
+
+/* Media Queries for Smaller Screens */
+
+/* For tablets and below (screen width less than or equal to 768px) */
+@media (max-width: 768px) {
+    .slider-btn {
+        padding: 15px;  /* Smaller padding for tablets */
+    }
+
+    .left-btn,
+    .right-btn {
+        padding: 15px;  /* Smaller padding for slider buttons */
+        font-size: 16px;  /* Slightly smaller font size */
+    }
+
+    #bike-model {
+        padding: 8px 20px;  /* Smaller padding for the dropdown */
+        font-size: 14px;  /* Smaller font size */
+    }
+
+    #bike-model option {
+        font-size: 14px;  /* Smaller font size for options */
+    }
+}
+
+/* For mobile devices (screen width less than or equal to 480px) */
+@media (max-width: 480px) {
+    .slider-btn {
+        padding: 10px;  /* Smaller padding for mobile */
+    }
+
+    .left-btn,
+    .right-btn {
+        padding: 10px;  /* Smaller padding for mobile slider buttons */
+        font-size: 14px;  /* Even smaller font size */
+    }
+
+    #bike-model {
+        padding: 6px 15px;  /* Even smaller padding for mobile dropdown */
+        font-size: 12px;  /* Smaller font size for mobile */
+    }
+
+    #bike-model option {
+        font-size: 12px;  /* Smaller font size for options */
+    }
+}
