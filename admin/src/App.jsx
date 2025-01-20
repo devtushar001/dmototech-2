@@ -13,7 +13,7 @@ import NewAdd from "./pages/NewAdd/NewAdd";
 
 function App() {
 
-  const url = 'http://localhost:8000';
+  const url = 'https://dmototech.onrender.com';
 
   return (
     <>
