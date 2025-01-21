@@ -13,7 +13,8 @@ import logo from "./web_logo.png";
 import logo_blur from "./f11.png";
 import whatsapp from "./whatsapp.png";
 import facebook_icon from "./communication.png";
-import instagram_icon from "./social.png"
+import instagram_icon from "./social.png";
+import menu_icon from './menu.png';
 
 export const assets = {
     whatsapp,
@@ -31,7 +32,8 @@ export const assets = {
     ktm,
     triumph,
     royal_enfield,
-    universal
+    universal,
+    menu_icon
 }
 
 export const menu_list = [

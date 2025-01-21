@@ -7,10 +7,11 @@ import { useEffect } from "react";
 const Cart = () => {
     const { cartItem, bikeAccessories, removeFromCart, getTotalCartAmount, url } = useContext(DochakiContext);
     const navigate = useNavigate();
-
-    useEffect(()=>{
-        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-    }, [])
+    // { top: 0, left: 0, behavior: "smooth" }
+    useEffect(() => {
+        window.scrollTo(0,0);
+    }, []);
+    
     return (
         <>
             <div className="cart">

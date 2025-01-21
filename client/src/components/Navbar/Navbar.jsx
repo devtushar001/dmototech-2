@@ -8,6 +8,7 @@ import { DochakiContext } from "../Context/Contact";
 
 const Navbar = (props) => {
     const { showLogin, setShowLogin } = props;
+    console.log(showLogin)
     const [menu, setMenu] = useState("home");
     const navigate = useNavigate();
     const reloadPage = () => {
@@ -34,20 +35,21 @@ const Navbar = (props) => {
                     <Link to='/contact-us'> <li className={menu === "contact-us" ? "active" : ""} onClick={() => { setMenu("contact-us") }}>contact us</li></Link>
                 </ul>
                 <div className="navbar-right">
-                    <img src={fassets.search_icon} alt="" />
                     <div className="navbar-search-icon">
                         <Link to="/cart"><img src={fassets.basket_icon} alt="" /></Link>
                         <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
                     </div>
-                    {!token ? <button onClick={() => { setShowLogin(true) }}>Sign Up</button> : <div className="navbar-profile">
-                        <img src={fassets.profile_icon} alt="" />
-                        <ul className="nav-profile-dropdown">
-                            <li onClick={() => navigate("/myorders")} ><img src={fassets.bag_icon} alt="" /><p>Orders</p></li>
-                            <hr />
-                            <li onClick={logout} ><img src={fassets.logout_icon} alt="" /> <p>Logout</p></li>
-                        </ul>
-                    </div>}
-
+                    <div id="user-menu" >
+                        {!token ? <button onClick={() => setShowLogin(true)}>Login</button> :
+                            <div className="navbar-profile">
+                                <img id="login-user" src={fassets.profile_icon} />
+                                <ul className="nav-profile-dropdown"> <li onClick={() => navigate('/myorders')}>Orders</li>
+                                    <hr />
+                                    <li onClick={logout}>Logout</li>
+                                </ul>
+                            </div>}
+                    </div>
+                        <img id="menu-icon" src={assets.menu_icon} alt="" />
                 </div>
             </div>
         </>

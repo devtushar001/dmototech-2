@@ -72,9 +72,16 @@
 }
 
 .navbar-profile {
+    width: 30px;
     position: relative;
     cursor: pointer;
     transition: all 0.3s;
+}
+
+#menu-icon {
+    width: 35px;
+    cursor: pointer;
+    display: none;
 }
 
 .nav-profile-dropdown {
@@ -133,14 +140,15 @@
 
     .navbar-menu {
         display: none;
-        flex-direction: column;
-        background-color: #ffffff;
-        width: 100%;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        padding: 10px 0;
-        border-top: 1px solid rgb(0, 97, 162);
+    }
+    #user-menu {
+        display: none;
+    }
+
+    #menu-icon {
+        width: 35px;
+        cursor: pointer;
+        display: block;
     }
 
     .navbar-menu li {
