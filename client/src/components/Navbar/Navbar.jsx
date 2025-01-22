@@ -10,6 +10,7 @@ const Navbar = (props) => {
     const { showLogin, setShowLogin } = props;
     console.log(showLogin)
     const [menu, setMenu] = useState("home");
+    const [sidebar, setSidebar] = useState(false);
     const navigate = useNavigate();
     const reloadPage = () => {
         window.location.reload()
@@ -49,7 +50,28 @@ const Navbar = (props) => {
                                 </ul>
                             </div>}
                     </div>
-                        <img id="menu-icon" src={assets.menu_icon} alt="" />
+                    <div className="small-nav-menu">
+                        <img onClick={() => { setSidebar(true) }} id="menu-icon" src={assets.menu_icon} alt="" />
+                        {sidebar ?
+                            <div className="small-menu-list">
+                                <div id="user-details">
+                                    <span>User</span>
+                                    <span className="cross-menu" onClick={() => { setSidebar(false) }}>X</span>
+                                </div>
+                                <ul id="small-view-links">
+                                    <Link to="/"><li onClick={() => { setSidebar(false) }}>home</li></Link>
+                                    <Link to="/shop"><li onClick={() => { setSidebar(false) }}>shop</li></Link>
+                                    <Link to="/about-us"><li onClick={() => { setSidebar(false) }}>about-us</li></Link>
+                                    <Link to="/contact-us"><li onClick={() => { setSidebar(false) }}>contact-us</li></Link>
+                                    <Link to="/cart"><li onClick={() => { setSidebar(false) }}>cart</li></Link>
+                                    <Link to="/myorders"><li onClick={() => { setSidebar(false) }}>your-order's</li></Link>
+
+                                </ul>
+                                <div id="users-data">
+                                    {!token ? <button onClick={() => setShowLogin(true)}>Login</button> : <div id="user-system"><img id="login-user" src={fassets.profile_icon} /> <button onClick={logout}>Logout</button> </div> }
+                                </div>
+                            </div> : ""}
+                    </div>
                 </div>
             </div>
         </>

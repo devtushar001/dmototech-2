@@ -38,7 +38,7 @@ const MyOrder = () => {
     };
     
     useEffect(() => {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+        window.scrollTo(0, 0);
         if (token && url) {
             myOrders();
         }

@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import GoogleSignup from "./GoogleSignup";
 
 const LoginPopup = ({ setShowLogin }) => {
-    const [currentState, setCurrentState] = useState("Sign Up");
+    const [currentState, setCurrentState] = useState("Login");
     const { url, setToken } = useContext(DochakiContext);
     const [data, setData] = useState({
         name: "",

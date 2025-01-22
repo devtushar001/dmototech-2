@@ -81,6 +81,68 @@
 #menu-icon {
     width: 35px;
     cursor: pointer;
+}
+
+#user-details {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.small-menu-list {
+    position: absolute;
+    top: -20px;
+    width: 270px;
+    right: -20px;
+    height: 100vh;
+    padding: 20px;
+    background-color: rgba(201, 201, 201, 0.218);
+    backdrop-filter: blur(20px);
+}
+
+#small-view-links {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: rgb(95, 95, 95);
+}
+
+#users-data {
+    padding: 10px 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 40px;
+    margin-top: 10px;
+    cursor: pointer;
+  
+}
+
+#user-system {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#small-view-links li {
+    list-style: none;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+}
+
+#small-view-links li:hover {
+    margin-left: 5px;
+}
+
+.cross-menu {
+    cursor: pointer;
+}
+
+.small-nav-menu {
     display: none;
 }
 
@@ -113,6 +175,10 @@
     color: rgb(0, 105, 180);
 }
 
+.small-nav-menu {
+    position: relative;
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
     .navbar {
@@ -141,15 +207,14 @@
     .navbar-menu {
         display: none;
     }
+
     #user-menu {
         display: none;
     }
 
-    #menu-icon {
-        width: 35px;
-        cursor: pointer;
-        display: block;
-    }
+    .small-nav-menu {
+    display: block;
+}
 
     .navbar-menu li {
         padding: 10px 20px;
