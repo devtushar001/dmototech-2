@@ -40,6 +40,7 @@ const LoginPopup = ({ setShowLogin }) => {
                 setShowLogin(false);
             }
             setData({ name: "", email: "", password: "" });
+            window.location.reload();
         } catch (error) {
             toast.error(error);
         }
