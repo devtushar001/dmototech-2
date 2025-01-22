@@ -40,6 +40,7 @@ const LoginPopup = ({ setShowLogin }) => {
                 setShowLogin(false);
             }
             setData({ name: "", email: "", password: "" });
+            window.location.reload();
         } catch (error) {
             toast.error(error);
         }
@@ -87,7 +88,7 @@ const LoginPopup = ({ setShowLogin }) => {
                     />
                 </div>
                 {currentState === "Sign Up" ? <div></div> : <div></div>}
-                
+
                 <button type="submit">
                     {currentState === "Sign Up" ? "Create Account" : "Login"}
                 </button>
@@ -101,7 +102,7 @@ const LoginPopup = ({ setShowLogin }) => {
                     <p>Create a new account? <span onClick={() => setCurrentState("Sign Up")}>Click here</span></p>
                 )}
             </form>
-            
+
         </div>
     );
 };
