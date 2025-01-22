@@ -22,7 +22,7 @@ const Navbar = (props) => {
         localStorage.removeItem("token");
         setToken("");
         navigate("/")
-        window.location.reload();
+        setSidebar(false);
     }
 
     return (
