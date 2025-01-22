@@ -15,6 +15,9 @@ import whatsapp from "./whatsapp.png";
 import facebook_icon from "./communication.png";
 import instagram_icon from "./social.png";
 import menu_icon from './menu.png';
+import slider_one from './slider1.png';
+import slider_two from './slider2.png';
+import slider_three from './slider3.png';
 
 export const assets = {
     whatsapp,
@@ -33,7 +36,10 @@ export const assets = {
     triumph,
     royal_enfield,
     universal,
-    menu_icon
+    menu_icon,
+    slider_one,
+    slider_two,
+    slider_three
 }
 
 export const menu_list = [
