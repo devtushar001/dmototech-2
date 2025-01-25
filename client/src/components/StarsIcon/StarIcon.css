@@ -37,9 +37,9 @@
 .star-icon .rating-message textarea {
     border: 1px solid rgb(0, 187, 255);
     outline-color: rgb(0, 94, 144);
-    padding: 30px;
+    padding:10px 20px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 19px;
+    font-size: 17px;
 }
 
 .star-icon .rating-message .buttons {
