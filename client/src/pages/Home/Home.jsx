@@ -6,6 +6,7 @@ import Header from "../../components/Header/Header";
 import AccessoriesDisplay from "../../components/AccesoriesDisplay/AccessoriesDisplay";
 import AppDownload from "../../components/AppDownload/AppDownload";
 import ShopNow from "../../components/ShopNow/ShopNow";
+import SocialIcons from "../../components/SocialIcons/SocialIcons";
 
 const Home = () => {
     const [category, setCategory] = useState('All');
@@ -17,6 +18,7 @@ const Home = () => {
         <>
             <div className="home">
                 <Header />
+                <SocialIcons/>
                 <div className="ksdl">
                     <ShopCategories
                         inputValue={setSearchQuery}
