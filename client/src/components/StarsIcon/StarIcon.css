@@ -1,0 +1,42 @@
+.star-icon {
+    margin-top: 20px;
+    border-bottom: 1px solid rgb(159, 159, 159);
+    padding: 20px;
+    position: relative;
+}
+
+.star-icon .rate-us {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* .star-icon .rate-us .rated-stars {
+    height: 30px;
+} */
+
+.star-icon .rate-us .rated-stars span {
+    cursor: pointer;
+}
+
+.star {
+    font-size: 300%;
+    color: goldenrod;
+    cursor: pointer;
+}
+
+.star.active {
+    font-size: 300%;
+    color: goldenrod;
+}
+
+.star-icon .rating-message {
+    display: flex;
+    flex-direction: column;
+}
+
+.star-icon .rating-message textarea {
+    border: 1px solid gray;
+    outline-color: rgb(0, 94, 144);
+    padding: 30px;
+}
