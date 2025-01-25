@@ -8,6 +8,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 45px;
+    margin-bottom: 45px;
 }
 
 /* .star-icon .rate-us .rated-stars {
@@ -19,13 +21,13 @@
 }
 
 .star {
-    font-size: 250%;
+    font-size: 300%;
     color: goldenrod;
     cursor: pointer;
 }
 
 .star.active {
-    font-size: 250%;
+    font-size: 300%;
     color: goldenrod;
 }
 
