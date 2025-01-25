@@ -144,17 +144,17 @@
     }
 
     .star-icon .rate-us h3 {
-        font-size: 17px;
+        font-size: 19px;
     }
 
     .star {
-        font-size: 150%;
+        font-size: 170%;
         color: goldenrod;
         cursor: pointer;
     }
 
     .star.active {
-        font-size: 150%;
+        font-size: 170%;
         color: goldenrod;
     }
 
