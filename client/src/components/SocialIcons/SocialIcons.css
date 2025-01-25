@@ -33,7 +33,7 @@
 
 @media (max-width: 480px) {
     .social-icons {
-        flex-direction: column; /* Stack icons vertically */
+        /* flex-direction: column; Stack icons vertically */
         align-items: center;
         gap: 10px;
     }

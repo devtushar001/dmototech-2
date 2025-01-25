@@ -139,6 +139,25 @@
         /* Keeps the spacing consistent */
     }
 
+    .star-icon .rating-message .buttons {
+        grid-template-columns: 70px 160px;
+    }
+
+    .star-icon .rate-us h3 {
+        font-size: 17px;
+    }
+
+    .star {
+        font-size: 150%;
+        color: goldenrod;
+        cursor: pointer;
+    }
+
+    .star.active {
+        font-size: 150%;
+        color: goldenrod;
+    }
+
     .reviews-container .review-1 {
         width: 380px;
         /* Adjust width slightly for smaller screens */
