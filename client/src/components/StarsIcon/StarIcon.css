@@ -12,10 +12,6 @@
     margin-bottom: 45px;
 }
 
-/* .star-icon .rate-us .rated-stars {
-    height: 30px;
-} */
-
 .star-icon .rate-us .rated-stars span {
     cursor: pointer;
 }
@@ -77,10 +73,11 @@
 
 .reviews-container .review-1 p {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    overflow: hidden;
 }
 
 .reviews-container .review-1 .user-name {
-    width: 200px;
+    width: 80%;
     position: absolute;
     display: flex;
     align-items: center;
