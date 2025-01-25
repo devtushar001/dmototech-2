@@ -53,7 +53,7 @@ const StarIcon = () => {
                 </div>
                 <br />
                 <div className="rate-us">
-                    <h2>Rate DMOTOTECH</h2>
+                    <h3>Rate DMOTOTECH</h3>
                     <div className="rated-stars">
                         <span
                             onClick={() => setRatings(1)}

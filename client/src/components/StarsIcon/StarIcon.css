@@ -140,14 +140,14 @@
     }
 
     .reviews-container .review-1 {
-        width: 280px;
+        width: 380px;
         /* Adjust width slightly for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .reviews-container .review-1 {
-        width: 250px;
+        width: 350px;
         /* Further reduce width on very small screens */
     }
 
