@@ -16,14 +16,15 @@ import MyOrder from "./pages/MyOrders/MyOrders";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Shop from "./pages/Shop/Shop";
 import Admin from "./pages/Admin/Admin";
+import RazorPay from "./pages/razorPay/razorPay";
 
 const App = () => {
    const [showLogin, setShowLogin] = useState(false);
    return (
       <>
-      {showLogin?<LoginPopup setShowLogin={setShowLogin} />:<></>}
+         {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
          <Navbar showLogin={showLogin} setShowLogin={setShowLogin} />
-      <ToastContainer/>
+         <ToastContainer />
          <div className="app">
             <Routes>
                <Route path='/' element={<Home />} />
@@ -32,12 +33,13 @@ const App = () => {
                <Route path="/order" element={<PlaceOrder />} />
                <Route path="/accessory/:id" element={<Accessory />} />
                <Route path="/shop/accessory/:id" element={<Accessory />} />
-               <Route path="/about-us" element={<AboutUs/>} />
-               <Route path="/contact-us" element={<ContactUs/>} />
-               <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
-               <Route path="/verify" element={<Verify/>} />
-               <Route path="/myorders" element={<MyOrder/>} />
-               <Route path="/admin-panel" element={<Admin/>} />
+               <Route path="/about-us" element={<AboutUs />} />
+               <Route path="/contact-us" element={<ContactUs />} />
+               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+               <Route path="/verify" element={<Verify />} />
+               <Route path="/myorders" element={<MyOrder />} />
+               <Route path="/admin-panel" element={<Admin />} />
+               <Route path="/razor-pay" element={<RazorPay />} />
             </Routes>
          </div>
          <Footer />

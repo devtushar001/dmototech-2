@@ -12,6 +12,7 @@ import nestedCtgRouter from './routes/nestedCtgRoute/nestedCtgRoute.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import ratingRoute from './routes/ratingRoute.js';
+import razorPayRouter from './routes/razorPayRouter.js';
 
 // Load Environment Variables
 dotenv.config();
@@ -49,7 +50,8 @@ app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
 app.use('/api/category', categoryRouter);
 app.use('/api/nested-category', nestedCtgRouter);
-app.use('/api/ratings', ratingRoute)
+app.use('/api/ratings', ratingRoute);
+app.use('/api/razorpay', razorPayRouter);
 
 // Catch-all handler for client-side routing
 app.get('*', (req, res) => {
