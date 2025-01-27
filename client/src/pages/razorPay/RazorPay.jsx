@@ -1,141 +1,256 @@
 import React, { useState, useContext, useEffect } from "react";
-import './RazorPay.css';
+import "./RazorPay.css";
 import { DochakiContext } from "../../components/Context/Contact";
+import { toast } from "react-toastify"; // For user notifications (install if not already installed)
 
 const RazorPay = () => {
-    const [data, setData] = useState({
-        courseId: "123",
-        amount: 0,
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    street: "",
+    city: "",
+    state: "",
+    zipcode: "",
+    country: "",
+    phone: "",
+  });
+
+  const { getTotalCartAmount, token, bikeAccessories, cartItem, url } = useContext(DochakiContext);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+
+  const razorPayScript = (src) => {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => resolve(true);
+      script.onerror = () => reject(new Error("Failed to load Razorpay script"));
+      document.body.appendChild(script);
     });
-    const { url } = useContext(DochakiContext);
-    const [scriptLoaded, setScriptLoaded] = useState(false);
+  };
 
-    const razorPayScript = (src) => {
-        return new Promise((resolve, reject) => {
-            const script = document.createElement("script");
-            script.src = src;
-            script.onload = () => resolve(true);
-            script.onerror = () => reject(new Error("Failed to load Razorpay script"));
-            document.body.appendChild(script);
-        });
+  useEffect(() => {
+    razorPayScript("https://checkout.razorpay.com/v1/checkout.js")
+      .then(() => setScriptLoaded(true))
+      .catch((error) => toast.error(error.message));
+  }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const validateForm = () => {
+    const { firstName, lastName, email, phone, street, city, state, zipcode, country } = data;
+    if (!firstName || !lastName || !email || !phone || !street || !city || !state || !zipcode || !country) {
+      toast.error("Please fill out all required fields.");
+      return false;
+    }
+    if (!/^\d{10}$/.test(phone)) {
+      toast.error("Phone number must be 10 digits.");
+      return false;
+    }
+    return true;
+  };
+
+  const razorPayPlaceOrder = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    const orderItems = bikeAccessories
+      .filter((item) => cartItem[item._id])
+      .map((item) => ({
+        ...item,
+        quantity: cartItem[item._id],
+      }));
+
+    if (orderItems.length === 0) {
+      toast.error("Your cart is empty. Please add items to proceed.");
+      return;
+    }
+
+    const orderData = {
+      address: data,
+      items: orderItems,
+      amount: getTotalCartAmount(),
     };
 
-    const razorPayPlaceOrder = async () => {
-        if (!data.amount || data.amount <= 0) {
-            alert("Please enter a valid amount.");
-            return;
-        }
+    if (!scriptLoaded) {
+      toast.error("Razorpay script is not loaded yet. Please wait.");
+      return;
+    }
 
-        if (!scriptLoaded) {
-            alert("Razorpay script is not loaded yet. Please wait.");
-            return;
-        }
+    try {
+      const response = await fetch(`${url}/api/razorpay/create-order`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderData),
+      });
 
-        try {
-            const response = await fetch(`${url}/api/razorpay/create-order`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
+      const result = await response.json();
+      if (!result || !result.amount || !result.id) {
+        throw new Error("Invalid response from server. Missing required fields.");
+      }
+
+      const paymentObject = new window.Razorpay({
+        key: "rzp_test_5XootAPGentZJU", // Replace with your Razorpay API key
+        amount: result.amount,
+        currency: "INR",
+        order_id: result.id,
+        handler: async function (response) {
+          const paymentDetails = {
+            order_id: response.razorpay_order_id,
+            payment_id: response.razorpay_payment_id,
+            signature: response.razorpay_signature,
+          };
+
+          try {
+            const verifyResponse = await fetch(`${url}/api/razorpay/verify-payment`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(paymentDetails),
             });
 
-            const result = await response.json().catch(() => {
-                throw new Error("Invalid JSON response from the server");
-            });
-
-            // Validate the result structure
-            if (!result || !result.amount || !result.id) {
-                throw new Error("Invalid response from server. Missing required fields.");
+            const verificationResult = await verifyResponse.json();
+            if (verificationResult.success) {
+              toast.success("Payment verified successfully!");
+            } else {
+              toast.error("Payment verification failed. Please contact support.");
             }
+          } catch (verificationError) {
+            toast.error("Failed to verify payment. Please try again.");
+          }
+        },
+        prefill: {
+          name: `${data.firstName} ${data.lastName}`,
+          email: data.email,
+          contact: data.phone,
+        },
+        theme: {
+          color: "#F37254",
+        },
+      });
 
-            const paymentObject = new window.Razorpay({
-                key: "rzp_test_5XootAPGentZJU",
-                amount: result.amount,
-                currency: "INR",
-                order_id: result.id,
-                handler: async function (response) {
-                    console.log("Payment successful", response);
+      paymentObject.open();
+    } catch (error) {
+      toast.error("Error processing the order: " + error.message);
+    }
+  };
 
-                    // Validate response fields
-                    if (
-                        !response.razorpay_order_id ||
-                        !response.razorpay_payment_id ||
-                        !response.razorpay_signature
-                    ) {
-                        alert("Payment verification failed. Missing response fields.");
-                        return;
-                    }
-
-                    const paymentDetails = {
-                        order_id: response.razorpay_order_id,
-                        payment_id: response.razorpay_payment_id,
-                        signature: response.razorpay_signature,
-                    };
-
-                    console.log(paymentDetails);
-
-                    try {
-                        const res_two = await fetch(`${url}/api/razorpay/create-order`, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(paymentDetails),
-                        });
-
-                        const verificationResult = await res_two.json();
-                        console.log("Verification Result:", verificationResult);
-
-                        if (verificationResult) {
-                            alert("Payment verified successfully!");
-                        } else {
-                            alert("Payment verification failed. Please contact support.");
-                        }
-                    } catch (verificationError) {
-                        console.error("Error during payment verification:", verificationError);
-                        alert("Failed to verify payment. Please try again.");
-                    }
-                },
-                prefill: {
-                    name: "John Doe",
-                    email: "johndoe@example.com",
-                    contact: "1234567890",
-                },
-                theme: {
-                    color: "#F37254",
-                },
-            });
-
-            paymentObject.open();
-
-        } catch (error) {
-            alert("Error processing the order: " + error.message);
-        }
-    };
-
-    useEffect(() => {
-        razorPayScript("https://checkout.razorpay.com/v1/checkout.js")
-            .then(() => setScriptLoaded(true))
-            .catch((error) => alert(error.message));
-    }, []);
-
-    return (
-        <div className="razor-pay">
-            <input
-                style={{ width: "320px", height: "35px" }}
-                onChange={(e) => setData((prev) => ({ ...prev, amount: e.target.value }))}
-                type="number"
-                placeholder="Enter amount"
-            />
-            <button
-                style={{ width: "120px", height: "35px" }}
-                onClick={razorPayPlaceOrder}
-            >
-                Make payment
-            </button>
+  return (
+    <form className="place-order" onSubmit={razorPayPlaceOrder}>
+      <div className="place-order-left">
+        <p className="title">Delivery Information</p>
+        <div className="multi-fields">
+          <input
+            name="firstName"
+            type="text"
+            placeholder="First name"
+            value={data.firstName}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            name="lastName"
+            type="text"
+            placeholder="Last name"
+            value={data.lastName}
+            onChange={handleInputChange}
+            required
+          />
         </div>
-    );
+        <input
+          name="email"
+          type="email"
+          placeholder="Email address"
+          value={data.email}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          name="street"
+          type="text"
+          placeholder="Street"
+          value={data.street}
+          onChange={handleInputChange}
+          required
+        />
+        <div className="multi-fields">
+          <input
+            name="city"
+            type="text"
+            placeholder="City"
+            value={data.city}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            name="state"
+            type="text"
+            placeholder="State"
+            value={data.state}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="multi-fields">
+          <input
+            name="zipcode"
+            type="text"
+            placeholder="Zip code"
+            value={data.zipcode}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            name="country"
+            type="text"
+            placeholder="Country"
+            value={data.country}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <input
+          name="phone"
+          type="tel"
+          placeholder="Phone"
+          value={data.phone}
+          onChange={handleInputChange}
+          pattern="[0-9]{10}"
+          required
+        />
+      </div>
+      <div className="place-order-right">
+        <div className="cart-total">
+          <h2>Cart Totals</h2>
+          <div className="cart-total-details">
+            <p>Subtotal</p>
+            <p>&#8377;{getTotalCartAmount()}</p>
+          </div>
+          <hr />
+          <div className="cart-total-details">
+            <p>Shipping Fee + GST</p>
+            <p>&#8377;50</p>
+          </div>
+          <hr />
+          <div className="cart-total-details">
+            <p>Total</p>
+            <p>&#8377;{getTotalCartAmount() + 50}</p>
+          </div>
+          <button type="submit">PROCEED TO PAYMENT</button>
+        </div>
+      </div>
+    </form>
+  );
 };
 
 export default RazorPay;
