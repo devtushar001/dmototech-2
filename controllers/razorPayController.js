@@ -13,8 +13,8 @@ export const createRazorPayOrderController = async (req, res) => {
   }
 
   const { courseId, amount } = req.body;
-  console.log(razorPayKeyId, razorPayKeySecret);
-  console.log(courseId, amount);
+  // console.log(razorPayKeyId, razorPayKeySecret);
+  // console.log(courseId, amount);
 
   const rPI = razorPayInstance(razorPayKeyId, razorPayKeySecret);
 
@@ -26,6 +26,7 @@ export const createRazorPayOrderController = async (req, res) => {
 
   try {
     const order = await rPI.orders.create(options); // Use async/await here
+    console.log(order)
     return res.status(200).json(order); // Send the created order to the client
   } catch (err) {
     console.log(err);
@@ -38,8 +39,9 @@ export const createRazorPayOrderController = async (req, res) => {
 
 
 export const verifyRazorPayOrderController = async (req, res) => {
+  console.log("hello")
   const { order_id, payment_id, signature } = req.body;
-
+console.log(req.body)
   // Validate the presence of the required fields
   if (!order_id || !payment_id || !signature) {
     return res.status(400).json({

@@ -4,6 +4,6 @@ import { createRazorPayOrderController, verifyRazorPayOrderController } from "..
 const razorPayRouter = express.Router();
 
 razorPayRouter.post('/create-order', createRazorPayOrderController);
-razorPayRouter.get('/verify-order', verifyRazorPayOrderController);
+razorPayRouter.post('/verify-order', verifyRazorPayOrderController);
 
 export default razorPayRouter;
