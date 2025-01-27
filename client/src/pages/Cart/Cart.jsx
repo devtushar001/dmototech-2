@@ -61,7 +61,7 @@ const Cart = () => {
                             <p>Total</p>
                             <p>&#8377;{getTotalCartAmount()}</p>
                         </div>
-                        <button onClick={() => navigate('/order')}>PROCEED TO CHECKOUT</button>
+                        <button onClick={() => navigate('/razor-pay')}>PROCEED TO CHECKOUT</button>
                     </div>
                     <div className="cart-promocode">
                         <div>
