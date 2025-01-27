@@ -89,6 +89,7 @@ const RazorPay = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          token: `Bearer ${token}`
         },
         body: JSON.stringify(orderData),
       });
@@ -115,6 +116,7 @@ const RazorPay = () => {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
+                token: `Bearer ${token}`
               },
               body: JSON.stringify(paymentDetails),
             });
