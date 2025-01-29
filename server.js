@@ -57,7 +57,12 @@ app.use('/api/razorpay', razorPayRouter);
 app.get('*', (req, res) => {
   if (req.path.startsWith('/admin')) {
     res.sendFile(path.join(__dirname, 'admin', 'dist', 'index.html'));
-  } else {
+  } else if (req.path.startsWith('/images')) {
+    app.use('/images', express.static(path.join(__dirname, 'uploads')));
+  } else if (req.path.startsWith('/catupload')) {
+    app.use('/catupload', express.static(path.join(__dirname, 'catupload')));
+  }
+  else {
     res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
   }
 });
