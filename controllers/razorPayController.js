@@ -34,7 +34,6 @@ export const createRazorPayOrderController = async (req, res) => {
 
     const order = await rPI.orders.create(options); // Use async/await here
     if (!order) return res.status(500).json({ success: false, message: "Failed to create Razorpay order" });
-    // console.log(order);
     savedOrder.razorpayOrder = {
       id: order.id,        // Razorpay order ID
       currency: 'INR',     // Currency
@@ -50,7 +49,6 @@ export const createRazorPayOrderController = async (req, res) => {
       orderId: savedOrder._id,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ success: false, message: error.message || "Internal Server Error" });
   }
 };
@@ -62,9 +60,6 @@ export const createRazorPayOrderController = async (req, res) => {
 export const verifyRazorPayOrderController = async (req, res) => {
   try {
     const { order_id, payment_id, signature } = req.body;
-    // console.log(order_id)
-    // console.log(payment_id)
-    // console.log(signature)
     if (!order_id || !payment_id || !signature)
       return res.status(400).json({ success: false, message: "Missing required fields" });
 
@@ -85,7 +80,6 @@ export const verifyRazorPayOrderController = async (req, res) => {
     if (expectedSignature === signature) {
       order.payment = true;
       await order.save();
-      console.log(order);
       return res.status(200).json({ success: true, message: "Payment verified successfully" });
     } else {
       return res.status(400).json({ success: false, message: "Payment verification failed" });

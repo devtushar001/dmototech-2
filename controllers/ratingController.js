@@ -39,7 +39,6 @@ export const ratingAddController = async (req, res) => {
                     message: "User not found.",
                });
           }
-          console.log(user);
           // Success response
 
 
@@ -50,7 +49,6 @@ export const ratingAddController = async (req, res) => {
           });
 
           // Log the created rating
-          console.log("Created Rating:", ratings);
 
 
           return res.status(201).json({
@@ -59,7 +57,6 @@ export const ratingAddController = async (req, res) => {
                data: user,
           });
      } catch (error) {
-          console.error("Error adding rating:", error.message);
           return res.status(500).json({
                success: false,
                message: "An error occurred.",
@@ -78,8 +75,6 @@ export const allRatingFetchController = async (req, res) => {
                     message: `Problem in fetching all ratings.`
                })
           }
-
-          console.log(allRatings);
 
           return res.status(201).json({
                success: true,
