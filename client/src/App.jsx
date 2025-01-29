@@ -15,8 +15,8 @@ import Verify from "./pages/Verify/Verify";
 import MyOrder from "./pages/MyOrders/MyOrders";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Shop from "./pages/Shop/Shop";
-import RazorPay from "./pages/RazorPay/RazorPay";
 import Admin from "./pages/Admin/Admin";
+import RazorPayMent from "./pages/RazorPay/RazorPayMent";
 
 const App = () => {
    const [showLogin, setShowLogin] = useState(false);
@@ -39,7 +39,7 @@ const App = () => {
                <Route path="/verify" element={<Verify />} />
                <Route path="/myorders" element={<MyOrder />} />
                <Route path="/admin-panel" element={<Admin />} />
-               <Route path="/razor-pay" element={<RazorPay />} />
+               <Route path="/razor-pay" element={<RazorPayMent />} />
             </Routes>
          </div>
          <Footer />

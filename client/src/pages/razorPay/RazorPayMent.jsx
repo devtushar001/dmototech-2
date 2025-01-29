@@ -4,7 +4,7 @@ import { DochakiContext } from "../../components/Context/Contact";
 import { toast } from "react-toastify"; // For user notifications
 import { useNavigate } from "react-router-dom";
 
-const RazorPay = () => {
+const RazorPayMent = () => {
     const [data, setData] = useState({
         firstName: "",
         lastName: "",
@@ -269,4 +269,4 @@ const RazorPay = () => {
     );
 };
 
-export default RazorPay;
+export default RazorPayMent;
