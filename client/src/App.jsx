@@ -15,8 +15,8 @@ import Verify from "./pages/Verify/Verify";
 import MyOrder from "./pages/MyOrders/MyOrders";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Shop from "./pages/Shop/Shop";
+import RazorPay from "./pages/RazorPay/RazorPay";
 import Admin from "./pages/Admin/Admin";
-import RazorPay from "./pages/razorPay/razorPay";
 
 const App = () => {
    const [showLogin, setShowLogin] = useState(false);
