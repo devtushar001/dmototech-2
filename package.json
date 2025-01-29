@@ -4,7 +4,6 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "server": "nodemon server.js",
     "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install --prefix ./admin && npm run build --prefix ./admin",
     "postinstall": "npm install",
     "start": "node server.js"
