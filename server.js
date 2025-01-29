@@ -1,4 +1,5 @@
 import express from 'express';
+// const express = require('express');
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/connectDB.js';
@@ -30,7 +31,9 @@ connectDB(mongo_url);
 
 // Define __dirname for ES Modules
 const __filename = fileURLToPath(import.meta.url);
+console.log(__filename);
 const __dirname = path.dirname(__filename);
+console.log(__dirname);
 
 // Serve Static Files
 app.use('/images', express.static(path.join(__dirname, 'uploads')));
