@@ -4,14 +4,21 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "server": "nodemon server.js",
-    "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install --prefix ./admin && npm run build --prefix ./admin",
-    "postinstall": "npm install",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
-  "author": "Your Name",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devtushar001/dmototech-2.git"
+  },
+  "author": "",
   "license": "ISC",
-  "description": "Description of your project",
+  "bugs": {
+    "url": "https://github.com/devtushar001/dmototech-2/issues"
+  },
+  "homepage": "https://github.com/devtushar001/dmototech-2#readme",
+  "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
@@ -24,15 +31,10 @@
     "mongoose": "^8.9.5",
     "multer": "^1.4.5-lts.1",
     "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.9",
     "razorpay": "^2.9.5",
-    "stripe": "^17.5.0",
+    "stripe": "^17.6.0",
     "uuid": "^11.0.5",
     "validator": "^13.12.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.7"
-  },
-  "engines": {
-    "node": "20.17.0"
   }
 }
