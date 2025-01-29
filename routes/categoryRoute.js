@@ -6,4 +6,5 @@ const categoryRouter = express.Router()
 categoryRouter.post('/add', upload.single('menu_image'), addCategory);
 categoryRouter.get('/get', getAllCategories);
 categoryRouter.delete('/delete', deleteCategory);
-export { categoryRouter };
+
+export default categoryRouter;
