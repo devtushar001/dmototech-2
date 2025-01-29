@@ -1,12 +1,13 @@
 {
-  "name": "klj",
+  "name": "dmototech",
   "version": "1.0.0",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
     "server": "nodemon server.js",
-    "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install --prefix ./admin && npm run build --prefix ./admin"
+    "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install --prefix ./admin && npm run build --prefix ./admin",
+    "postinstall": "npm install",
+    "start": "node server.js"
   },
   "author": "Your Name",
   "license": "ISC",
