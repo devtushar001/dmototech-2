@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import "./RazorPay.css";
+import "./RazorPayment.css";
 import { DochakiContext } from "../../components/Context/Contact";
 import { toast } from "react-toastify"; // For user notifications
 import { useNavigate } from "react-router-dom";
