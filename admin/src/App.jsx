@@ -22,11 +22,11 @@ function App() {
       <div className="app-content">
         <Sidebar />
         <Routes>
-          <Route path="/" element={<Panel url={url} />} />
-          <Route path="/add" element={<Add url={url} />} />
-          <Route path="/list" element={<List url={url} />} />
-          <Route path="/orders" element={<Orders url={url} />} />
-          <Route path="/new-add" element={<NewAdd url={url} />} />
+          <Route path="/admin" element={<Panel url={url} />} />
+          <Route path="/admin/add" element={<Add url={url} />} />
+          <Route path="/admin/list" element={<List url={url} />} />
+          <Route path="/admin/orders" element={<Orders url={url} />} />
+          <Route path="/admin/new-add" element={<NewAdd url={url} />} />
         </Routes>
         <ToastContainer />
       </div>
