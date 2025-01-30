@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install --prefix ./admin && npm run build --prefix ./admin",
     "postinstall": "npm install",
     "start": "node server.js",
     "server": "nodemon server.js"

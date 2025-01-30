@@ -51,14 +51,6 @@ app.use('/api/nested-category', nestedCtgRouter);
 app.use('/api/ratings', ratingRoute);
 app.use('/api/razorpay', razorPayRouter);
 
-// Catch-all handler for client-side routing
-app.get('*', (req, res) => {
-  if (req.path.startsWith('/admin')) {
-    res.sendFile(path.join(__dirname, 'admin', 'dist', 'index.html'));
-  } else {
-    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
-  }
-});
 
 // Start the server
 app.listen(port, () => {
