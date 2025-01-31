@@ -13,6 +13,8 @@ import razorPayRouter from './routes/razorPayRouter.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+import imageRouter from './routes/imageRoutes.js';
+import cloudinarySetup from './config/cloudinarySetup.js';
 
 // Load Environment Variables
 dotenv.config();
@@ -20,6 +22,9 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 const mongo_url = process.env.MONGODB_URL;
+const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+const cloudApiKey = process.env.CLOUDINARY_API_KEY;
+const cloudApiSecret = process.env.CLOUDINARY_API_SECRET;
 
 // Handle missing MongoDB URL
 if (!mongo_url) {
@@ -37,6 +42,7 @@ connectDB(mongo_url).catch((err) => {
     console.error("❌ MongoDB Connection Failed:", err);
     process.exit(1); // Exit process on failure
 });
+cloudinarySetup(cloudName, cloudApiKey, cloudApiSecret);
 
 // Define __dirname for ES Modules
 const __filename = fileURLToPath(import.meta.url);
@@ -70,6 +76,7 @@ app.use('/api/category', categoryRouter);
 app.use('/api/nested-category', nestedCtgRouter);
 app.use('/api/ratings', ratingRoute);
 app.use('/api/razorpay', razorPayRouter);
+app.use('/api/images', imageRouter)
 
 // Global Error Handling Middleware
 app.use((err, req, res, next) => {

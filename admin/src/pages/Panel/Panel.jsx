@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Panel.css';
 import { toast } from 'react-toastify';
+import ImageUploader from '../../components/ImageUploader/ImageUploader';
 
 const CreateCategory = ({ url }) => {
     const [menuName, setMenuName] = useState('');
@@ -174,7 +175,7 @@ const CreateCategory = ({ url }) => {
 
     return (
         <div className="panel-container">
-            {/* Create Category Section */}
+          <ImageUploader/>
             <div className="create-category">
                 <h1>{!sub ? "Create Category" : "Add Subcategory"}</h1>
                 <form onSubmit={handleSubmit} className="create-category-form">

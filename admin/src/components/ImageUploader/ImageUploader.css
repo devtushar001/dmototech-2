@@ -43,7 +43,7 @@
   .image-uploader .outputs {
     border: 1px solid gray;
     padding: 10px;
-    height: 400px; /* Set a fixed height */
+    height: 320px; /* Set a fixed height */
     overflow-y: auto; /* Enable vertical scrolling */
     display: flex;
     flex-wrap: wrap;
