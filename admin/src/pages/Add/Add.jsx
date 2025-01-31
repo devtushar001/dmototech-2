@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import './Add.css';
 import nav_icon from "../../assets/db";
 import { toast } from "react-toastify";
+import ImageUploader from "../../components/ImageUploader/ImageUploader";
 
 const Add = ({ url }) => {
   const [categories, setCategories] = useState([]);
@@ -140,6 +141,7 @@ const Add = ({ url }) => {
 
   return (
     <div className="add">
+      <ImageUploader/>
       <form className="flex-col" onSubmit={handleSubmit}>
         {/* Image Upload Section */}
         <div className="all-image-upload">
