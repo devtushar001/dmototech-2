@@ -1,0 +1,44 @@
+.social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the icons horizontally */
+    /* border-top: 1px solid #a3a3a3; */
+    border-bottom: 1px solid #a3a3a3;
+    padding: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Allow wrapping of icons on smaller screens */
+    gap: 15px; /* Add space between items */
+}
+
+.social-icons img {
+    width: 48px; /* Slightly smaller default width for better responsiveness */
+    cursor: pointer;
+    transition: all ease-in-out 0.4s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.07);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .social-icons {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .social-icons img {
+        width: 40px; /* Smaller icon size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icons {
+        /* flex-direction: column; Stack icons vertically */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .social-icons img {
+        width: 36px; /* Further reduce icon size for very small screens */
+    }
+}

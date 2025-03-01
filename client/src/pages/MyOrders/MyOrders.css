@@ -1,0 +1,122 @@
+.my-orders {
+    margin-top: 120px;
+    margin: 120px 0px 0px 0px;
+}
+
+.my-orders h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.my-orders .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.my-orders-order {
+    margin: 20px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 0.3fr 1.5fr 1fr 0.7fr 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+    color: #454545;
+    border: 1px solid rgb(0, 112, 168);
+    border-radius: 8px;
+    max-width: 900px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#money,
+#fail {
+    backdrop-filter: blur(20px);
+    border-radius: 4px;
+    padding: 7px 17px;
+    font-size: 14px;
+}
+
+#money {
+    color: #00be23;
+    background-color: rgba(0, 128, 0, 0.133);
+}
+
+#fail {
+    color: #de0000;
+    background-color: #ff000038;
+}
+
+.my-orders-order img {
+    width: 50px;
+}
+
+.my-orders-order p span {
+    color: rgb(0, 112, 168);
+}
+
+.my-orders-order p b {
+    font-weight: 500;
+    color: #454545;
+}
+
+.my-orders-order button {
+    padding: 12px 0px;
+    border-radius: 4px;
+    background-color: #ffe1e1e1;
+    cursor: pointer;
+    color: #454545;
+    border: none;
+    font-size: 14px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .my-orders-order {
+        grid-template-columns: 1fr; /* Stacks items vertically */
+        gap: 15px;
+        text-align: center;
+    }
+
+    .my-orders-order img {
+        margin: 0 auto;
+        width: 40px; /* Smaller image size */
+    }
+
+    #money,
+    #fail {
+        font-size: 12px; /* Adjust text size */
+        padding: 5px 10px;
+    }
+
+    .my-orders-order button {
+        width: 100%; /* Full width for buttons */
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .my-orders h2 {
+        font-size: 18px; /* Smaller heading size */
+    }
+
+    .my-orders-order {
+        padding: 15px;
+        font-size: 12px; /* Smaller font size for compact view */
+    }
+
+    .my-orders-order img {
+        width: 35px; /* Further reduce image size */
+    }
+
+    #money,
+    #fail {
+        font-size: 11px; /* Adjust text size for labels */
+    }
+
+    .my-orders-order button {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

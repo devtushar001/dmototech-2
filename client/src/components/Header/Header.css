@@ -1,0 +1,157 @@
+/* Slider Container */
+.slider {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 120px;
+}
+
+.slider .slider-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-container .slide {
+  min-width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Shop Now Button */
+ #shop-now {
+  position: absolute;
+  z-index: 10;
+  bottom: 34px;
+  padding: 12px 39px;
+  cursor: pointer;
+  right: 34px;
+  border-radius: 24px;
+  border: none;
+  background: #ffffff2c;
+  backdrop-filter: blur(20px);
+  color: rgb(0, 61, 152);
+  transition: all ease-in-out 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+              rgba(0, 0, 0, 0.12) 0px -12px 30px, 
+              rgba(0, 0, 0, 0.12) 0px 4px 6px, 
+              rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+              rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#shop-now:hover {
+  transform: translateY(-5px);
+}
+
+.slider .slide-content {
+  max-width: 600px;
+  text-align: center;
+}
+
+
+
+
+/* Navigation Buttons */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Indicators */
+.indicators {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .slide {
+    height: 300px; /* Slightly reduce the height */
+  }
+
+  #shop-now {
+    padding: 12px 39px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide {
+    height: 250px; /* Further reduce height for smaller screens */
+  }
+
+
+  #shop-now {
+    padding: 12px 39px;
+    font-size: 0.8rem;
+  }
+
+  .prev,
+  .next {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    height: 200px; /* Compact height for mobile devices */
+  }
+
+
+  #shop-now {
+    padding: 12px 39px;
+    font-size: 0.7rem;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .prev,
+  .next {
+    padding: 6px 10px;
+  }
+}

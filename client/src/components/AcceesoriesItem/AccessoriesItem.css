@@ -1,0 +1,119 @@
+.accessory-item {
+    width: 100%;
+    height: 540px;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #00000015;
+    overflow: hidden;
+    transition: 0.3s;
+    animation: fadeIn 1s;
+    cursor: pointer;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.accessory-item:hover {
+   transform: translateY(-10px)
+}
+
+.accessory-item-image {
+    width: 100%;
+}
+
+.accesory-item-info {
+    padding: 20px;
+}
+
+.accessory-item-ratings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.first {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accessory-item-price {
+    margin-top: 20px;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.accessory-item-new-price {
+    text-decoration: line-through;
+}
+
+.accessory-item-old-price {
+    color: #004a94;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.accessory-item-name-rating {
+    height: 25px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.view-more {
+    padding: 12px;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.7s;
+}
+
+.accessories-item-img-container {
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+}
+
+.accessories-item-img-container .add {
+    width: 35px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    border-radius: 50%;
+}
+
+.accessory-item-counter {
+    width: 120px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px;
+    border-radius: 50px;
+    background-color: #fff;
+}
+
+
+.accessory-item-counter img{
+   width: 30px;
+}
+
+#ctgs {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#ctg-sub-ctg {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#ctg-sub-ctg img {
+    width: 8px;
+}

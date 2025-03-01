@@ -1,0 +1,252 @@
+.navbar {
+    width: 100%;
+    height: 90px;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    position: fixed;
+    z-index: 10000;
+    border-bottom: 1px solid rgb(0, 97, 162);
+    padding: 0 20px;
+}
+
+.navbar .logo {
+    width: 130px;
+    cursor: pointer;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #49557e;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+.navbar-menu li {
+    cursor: pointer;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar button {
+    background: transparent;
+    font-size: 16px;
+    color: #49557e;
+    border: 1px solid rgb(0, 97, 224);
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.navbar button:hover {
+    background-color: rgba(0, 97, 224, 0.099);
+}
+
+.navbar .active {
+    padding-bottom: 2px;
+    border-bottom: 2px solid rgb(0, 97, 224);
+}
+
+.navbar-search-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar-search-icon .dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(0, 97, 224);
+    border-radius: 50%;
+    top: -5px;
+    right: -5px;
+}
+
+.navbar-profile {
+    width: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#menu-icon {
+    width: 35px;
+    cursor: pointer;
+}
+
+#user-details {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.small-menu-list {
+    position: absolute;
+    top: -20px;
+    width: 270px;
+    right: -20px;
+    height: 100vh;
+    padding: 20px;
+    background-color: rgba(201, 201, 201, 0.218);
+    backdrop-filter: blur(20px);
+}
+
+#small-view-links {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: rgb(95, 95, 95);
+}
+
+#users-data {
+    padding: 10px 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 40px;
+    margin-top: 10px;
+    cursor: pointer;
+  
+}
+
+#user-system {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#small-view-links li {
+    list-style: none;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+}
+
+#small-view-links li:hover {
+    margin-left: 5px;
+}
+
+.cross-menu {
+    cursor: pointer;
+}
+
+.small-nav-menu {
+    display: none;
+}
+
+.nav-profile-dropdown {
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff2ef;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px solid rgb(0, 105, 180);
+    list-style: none;
+}
+
+.nav-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.nav-profile-dropdown li:hover {
+    color: rgb(0, 105, 180);
+}
+
+.small-nav-menu {
+    position: relative;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .navbar {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 10px 20px;
+    }
+
+    .navbar-menu {
+        gap: 15px;
+        font-size: 16px;
+    }
+
+    .navbar-right {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        /* flex-direction: column; */
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .navbar-menu {
+        display: none;
+    }
+
+    #user-menu {
+        display: none;
+    }
+
+    .small-nav-menu {
+    display: block;
+}
+
+    .navbar-menu li {
+        padding: 10px 20px;
+    }
+
+    .navbar .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        margin-left: auto;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo {
+        width: 100px;
+    }
+
+    .navbar button {
+        font-size: 14px;
+        padding: 6px 15px;
+    }
+
+    .navbar-right {
+        gap: 10px;
+    }
+
+    .navbar-menu li {
+        font-size: 14px;
+    }
+}

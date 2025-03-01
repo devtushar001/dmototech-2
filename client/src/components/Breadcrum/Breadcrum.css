@@ -1,0 +1,32 @@
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #5e5e5e;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 150px 0px 60px 0px;
+    text-transform: uppercase;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    word-break: break-word; /* Break long words if necessary */
+}
+
+@media (max-width: 768px) {
+    .breadcrumb {
+        font-size: 14px; /* Smaller font size for tablets */
+        margin: 120px 0px 40px 0px; /* Adjust margins */
+        gap: 6px; /* Reduce gap */
+    }
+}
+
+@media (max-width: 480px) {
+    .breadcrumb {
+        font-size: 12px; /* Smaller font size for mobile */
+        margin: 100px 0px 30px 0px; /* Further adjust margins */
+    }
+
+    .breadcrumb img {
+        width: 12px; /* Reduce icon size */
+        height: auto;
+    }
+}

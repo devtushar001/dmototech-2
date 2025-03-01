@@ -1,0 +1,176 @@
+.star-icon {
+    margin-top: 20px;
+    border-bottom: 1px solid rgb(159, 159, 159);
+    padding: 20px;
+}
+
+.star-icon .rate-us {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+
+.star-icon .rate-us .rated-stars span {
+    cursor: pointer;
+}
+
+.star {
+    font-size: 300%;
+    color: goldenrod;
+    cursor: pointer;
+}
+
+.star.active {
+    font-size: 300%;
+    color: goldenrod;
+}
+
+.star-icon .rating-message {
+    display: flex;
+    flex-direction: column;
+}
+
+.star-icon .rating-message textarea {
+    border: 1px solid rgb(0, 187, 255);
+    outline-color: rgb(0, 94, 144);
+    padding:10px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+}
+
+.star-icon .rating-message .buttons {
+    display: grid;
+    grid-template-columns: 100px 200px;
+    height: 33px;
+    gap: 10px;
+}
+
+.star-icon .rating-message .buttons button {
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.star-icon .rating-message .buttons .submit {
+    background-color: green;
+}
+
+.star-icon .rating-message .buttons .cancel {
+    background-color: red;
+}
+
+.reviews-container .review-1 {
+    height: 200px;
+    padding: 30px;
+    width: 540px;
+    position: relative;
+    border: 1px solid gray;
+    margin-right: 10px;
+}
+
+.reviews-container .review-1 p {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.reviews-container .review-1 .user-name {
+    width: 80%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(109, 155, 190);
+    padding: 4px 10px;
+    border-radius: 24px;
+    right: 20px;
+    bottom: 20px;
+}
+
+.star-icon .our-previos-review .reviews-container {
+    display: flex;
+}
+
+.star-icon .our-previos-review .reviews-container {
+    display: flex;
+    /* Ensures reviews are in a horizontal row */
+    overflow-x: auto;
+    /* Enables horizontal scrolling */
+    scroll-behavior: smooth;
+    /* Adds smooth scrolling */
+    gap: 10px;
+    /* Space between reviews */
+    padding: 10px;
+    /* Padding for better alignment */
+}
+
+.star-icon .our-previos-review .reviews-container::-webkit-scrollbar {
+    height: 6px;
+    /* Height of the scrollbar for horizontal scrolling */
+}
+
+.star-icon .our-previos-review .reviews-container::-webkit-scrollbar-track {
+    background: lightgray;
+    /* Background color of the scrollbar track */
+}
+
+.star-icon .our-previos-review .reviews-container::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+    /* Scrollbar thumb color */
+    border-radius: 3px;
+    /* Rounded corners for scrollbar thumb */
+}
+
+.reviews-container .review-1 {
+    flex-shrink: 0;
+    /* Prevents items from shrinking */
+    width: 350px;
+    /* Fixed width for reviews */
+    border: 1px solid gray;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .reviews-container {
+        gap: 10px;
+        /* Keeps the spacing consistent */
+    }
+
+    .star-icon .rating-message .buttons {
+        grid-template-columns: 70px 160px;
+    }
+
+    .star-icon .rate-us h3 {
+        font-size: 19px;
+    }
+
+    .star {
+        font-size: 170%;
+        color: goldenrod;
+        cursor: pointer;
+    }
+
+    .star.active {
+        font-size: 170%;
+        color: goldenrod;
+    }
+
+    .reviews-container .review-1 {
+        width: 380px;
+        /* Adjust width slightly for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .reviews-container .review-1 {
+        width: 350px;
+        /* Further reduce width on very small screens */
+    }
+
+    .reviews-container {
+        padding: 5px;
+        /* Reduce padding for smaller screens */
+    }
+}
