@@ -1,81 +1,68 @@
-
-
 .image-uploader {
-    display: grid;
-    padding: 30px;
-    grid-template-columns: 1fr 3fr;
-    gap: 20px;
-  }
-  
-  
-  
-  @media (max-width: 540px) {
-    .image-uploader {
-      grid-template-columns: 1fr;
-  
-  }
-  
-  
-  }
-  
-  
-  .image-uploader .inputs {
-    border: 1px solid gray;
-    padding: 30px;
-  }
-  
-  .image-uploader .inputs input {
-    border: 1px solid blue;
-    width: 100%;
-    align-content: center;
-    text-align: center;
-    height: 35px;
-  }
-  
-  .image-uploader button {
-    width: 100%;
-    height: 35px;
-    cursor: pointer;
-    margin-top: 30px;
-  }
-  
-  /* Updated Outputs Section */
-  .image-uploader .outputs {
-    border: 1px solid gray;
-    padding: 10px;
-    height: 320px; /* Set a fixed height */
-    overflow-y: auto; /* Enable vertical scrolling */
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  /* Style for images */
-  
-  
-  
-  .single-image-grid {
-    width: 210px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid gray;
-    padding: 7px;
-  }
-  
-  .single-image-grid img {
-    width: 100%;
-  }
-  
-  .single-image-grid .buttons {
-    display: flex;
-    gap: 3px;
-  }
-  
-  
-  @media (max-width: 540px) {
-    .single-image-grid {
-      width: 100%;
-  
-  }
-  
-  
-  }
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+
+
+.inputs input {
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.inputs button {
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-height: 450px; 
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.single-image-grid {
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.single-image-grid img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.buttons button {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.image-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.image-container::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 3px;
+}
+
+.image-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}

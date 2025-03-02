@@ -55,7 +55,7 @@ app.use('/api/category', categoryRouter);
 app.use('/api/nested-category', nestedCtgRouter);
 app.use('/api/ratings', ratingRoute);
 app.use('/api/razorpay', razorPayRouter);
-app.use('/api/images', imageRouter)
+app.use('/api/images', imageRouter);
 app.use('/api/admin-user', adminUserRouter)
 
 app.use((err, req, res, next) => {

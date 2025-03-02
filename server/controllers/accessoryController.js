@@ -2,64 +2,47 @@ import AccessoryModel from "../models/accessoryModel.js";
 import mongoose from "mongoose";
 import fs from "fs";
 
-// POST API to add a new product
 const addAccessory = async (req, res) => {
-  const {
-    name,
-    category,
-    subcategory,
-    reviews,
-    reviewCount,
-    oldPrice,
-    newPrice,
-    currency,
-    description,
-    material,
-    compatibility,
-  } = req.body;
-   
-  console.log(subcategory)
-  // Validate required fields
-  if (!name || !category || !oldPrice || !newPrice || !description) {
-    return res.json({ success: false, message: "Missing required fields" });
-  }
-
-  const newProduct = new AccessoryModel({
-    name,
-    category,
-    subcategory,
-    reviews: parseFloat(reviews) || 0,
-    reviewCount: parseInt(reviewCount) || 0,
-    price: {
-      oldPrice: parseFloat(oldPrice),
-      newPrice: parseFloat(newPrice),
-      currency,
-    },
-    description,
-    images: {
-      mainImage: req.files["mainImage"] ? `/${req.files["mainImage"][0].filename}` : null,
-      secondImage: req.files["secondImage"] ? `/${req.files["secondImage"][0].filename}` : null,
-      thirdImage: req.files["thirdImage"] ? `/${req.files["thirdImage"][0].filename}` : null,
-      fourthImage: req.files["fourthImage"] ? `/${req.files["fourthImage"][0].filename}` : null,
-    },
-    additionalInfo: {
-      material,
-      compatibility: typeof compatibility === "string" ? compatibility.split(",") : [],
-    },
-  });
-
   try {
-    const item = await newProduct.save();
+    const {
+      name,
+      category,
+      price,
+      description,
+      galleryImage,
+      content,
+      featuredImage,
+      tags
+    } = req.body;
+
+    console.log(req.body)
+
+    if (!name || !category || !price || !description || !featuredImage) {
+      return res.json({ success: false, message: "Missing required fields" });
+    }
+    const newProduct = await AccessoryModel.create({
+      name,
+      category,
+      price,
+      description,
+      galleryImage,
+      content,
+      featuredImage,
+      tags
+    });
+
+    console.log("New Product Added:", newProduct);
+
     return res.json({
       success: true,
       message: "Accessory Added",
-      data: item,
+      data: newProduct, // ✅ Fixed variable name
     });
   } catch (error) {
-    // console.error("Add Accessory Error:", error);
+    console.error("Add Accessory Error:", error);
     return res.json({
       success: false,
-      message: "Error adding accessory" + error,
+      message: "Error adding accessory: " + error.message,
     });
   }
 };
@@ -74,10 +57,10 @@ const accessoryList = async (req, res) => {
       data: accessories,
     });
   } catch (error) {
-    // console.error("Accessory List Error:", error);
+    console.error("Accessory List Error:", error);
     return res.json({
       success: false,
-      message: "Error fetching accessories" + error,
+      message: "Error fetching accessories: " + error.message,
     });
   }
 };
@@ -95,7 +78,6 @@ const removeAccessory = async (req, res) => {
 
   try {
     const accessory = await AccessoryModel.findById(productId);
-
     if (!accessory) {
       return res.json({
         success: false,
@@ -103,27 +85,20 @@ const removeAccessory = async (req, res) => {
       });
     }
 
-    // Delete associated images
-    const imagePaths = [
-      accessory.images.mainImage,
-      accessory.images.secondImage,
-      accessory.images.thirdImage,
-      accessory.images.fourthImage,
-    ].filter(Boolean);
+    // ✅ Ensure `images` object exists before accessing properties
+    const imagePaths = accessory.images
+      ? [accessory.images.mainImage, accessory.images.secondImage, accessory.images.thirdImage, accessory.images.fourthImage].filter(Boolean)
+      : [];
 
-    if (!imagePaths) {
-      return res.json({
-        success: false,
-        message: "Not Found"
-      })
-    }
-
-    imagePaths.forEach((path) => {
-      const fullPath = `uploads${path}`;
-      fs.unlink(fullPath, (err) => {
-        if (err) console.error(`Failed to delete image: ${fullPath}`, err);
+    // ✅ Properly check if there are images to delete
+    if (imagePaths.length > 0) {
+      imagePaths.forEach((path) => {
+        const fullPath = `uploads${path}`;
+        fs.unlink(fullPath, (err) => {
+          if (err) console.error(`Failed to delete image: ${fullPath}`, err);
+        });
       });
-    });
+    }
 
     await accessory.deleteOne();
     return res.json({
@@ -134,7 +109,7 @@ const removeAccessory = async (req, res) => {
     console.error("Remove Accessory Error:", error);
     return res.json({
       success: false,
-      message: "Error removing accessory" + error,
+      message: "Error removing accessory: " + error.message,
     });
   }
 };

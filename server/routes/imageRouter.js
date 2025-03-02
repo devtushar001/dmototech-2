@@ -1,10 +1,9 @@
 import express from "express";
 import multer from "multer";
-import { deleteImageController, getImageController, uploadImageController } from "../controllers/imageUploader.js";
+import { deleteImageController, getImageController, uploadImageController } from "../Controller/imageController.js";
 
 const imageRouter = express.Router();
 
-// Configure Multer to use memory storage
 const storage = multer.memoryStorage(); 
 
 const upload = multer({ storage });

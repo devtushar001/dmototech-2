@@ -1,6 +1,7 @@
 import express from 'express';
 import { accessoryList, addAccessory, removeAccessory } from '../controllers/accessoryController.js';
 import multer from 'multer';
+import { verifyToken } from '../middlewares/adminAuth.js';
 
 const accessoryRouter = express.Router();
 
@@ -16,12 +17,7 @@ const upload = multer({ storage: storage });
 
 
 // inserting accessory item in database
-accessoryRouter.post("/add", upload.fields([
-  { name: 'mainImage', maxCount: 1 },
-  { name: 'secondImage', maxCount: 1 },
-  { name: 'thirdImage', maxCount: 1 },
-  { name: 'fourthImage', maxCount: 1 }
-]), addAccessory);
+accessoryRouter.post("/add", verifyToken, addAccessory);
 // retriving all accessory list 
 accessoryRouter.get("/list", accessoryList);
 // remove accessory item from database

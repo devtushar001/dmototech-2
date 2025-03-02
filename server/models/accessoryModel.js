@@ -10,20 +10,6 @@ const accessorySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    subcategory: {
-        type: String,
-        default: [],
-    },
-    reviews: {
-        type: Number,
-        min: 0,
-        max: 5,
-        default: 0,
-    },
-    reviewCount: {
-        type: Number,
-        default: 0,
-    },
     price: {
         oldPrice: {
             type: Number,
@@ -32,48 +18,32 @@ const accessorySchema = new mongoose.Schema({
         newPrice: {
             type: Number,
             required: true,
-        },
-        currency: {
-            type: String,
-            default: 'INR',
-        },
+        }
     },
     description: {
         type: String,
         required: true,
     },
-    images: {
-        mainImage: {
-            type: String,
-            required: true,
-        },
-        secondImage: {
-            type: String,
-        },
-        thirdImage: {
-            type: String,
-        },
-        fourthImage: {
-            type: String,
-        },
+    galleryImage: {
+        type: Array,
+        default: []
     },
-    additionalInfo: {
-        material: {
-            type: String,
-            required: true,
-        },
-        compatibility: {
-            type: [String], // Array of strings
-            required: true,
-        },
+    content: {
+        type: String,
+        default: ""
     },
-
+    featuredImage: {
+        type: String,
+        required: true
+    },
+    tags: {
+        type: Array,
+        default: []
+    },
 })
 
 
 
 
-// Create model from the schema
 const AccessoryModel = mongoose.models.accessory || mongoose.model('accessory', accessorySchema);
-// Export the model for use in other files
 export default AccessoryModel;

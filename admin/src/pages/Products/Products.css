@@ -1,0 +1,78 @@
+.product-adding {
+  width: 100vw;
+  background-color: #f9f9f9;
+}
+
+.product-form {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  padding: 20px;
+  gap: 20px;
+}
+
+.product-adding .product-form .left {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  gap: 10px;
+}
+
+.product-adding .product-form .left input,
+.product-adding .product-form .left button {
+  min-height: 34px;
+  height: auto;
+  padding-left: 12px;
+}
+
+.product-adding .product-form .left button {
+  cursor: pointer;
+}
+
+.product-adding .product-form .left textarea {
+  height: 340px;
+  padding: 20px;
+}
+
+.product-adding .product-form .right {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-adding .product-form .right .featured-image {
+  height: auto;
+  border: 1px solid gray;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-adding .product-form .right .featured-image button {
+  padding: 7px 20px;
+  max-width: 250px;
+  cursor: pointer;
+}
+
+.product-adding .product-form .right .featured-image img {
+  width: 100%;
+}
+
+.product-adding .product-form .right .gallery-image .gallery-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.product-adding .product-form .right .gallery-image img {
+  height: 150px;
+}
+
+
+.product-adding .product-form .right .gallery-image .gallery-images button{
+  padding: 7px 20px;
+  max-width: 250px;
+  cursor: pointer;
+}
