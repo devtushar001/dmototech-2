@@ -6,10 +6,10 @@ import Add from "./pages/Add/Add";
 import List from "./pages/List/List";
 import Orders from "./pages/Orders/Orders";
 import Panel from "./pages/Panel/Panel";
-// import NewAdd from "./pages/NewAdd.jsx/NewAdd";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NewAdd from "./pages/NewAdd/NewAdd";
+import LoginSignup from "./pages/LoginSignup/LoginSignup";
 
 function App() {
 

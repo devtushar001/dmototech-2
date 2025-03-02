@@ -1,0 +1,65 @@
+/* AuthForm.css */
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #1a202c;
+}
+
+.auth-card {
+  width: 24rem;
+  padding: 1.5rem;
+  background-color: #2d3748;
+  color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.auth-card .auth-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.auth-card .auth-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.auth-card .auth-card-content .auth-input {
+  padding: 0.75rem;
+  width: 100%;
+  background-color: #4a5568;
+  border: 1px solid #718096;
+  border-radius: 0.5rem;
+  color: white;
+  outline: none;
+}
+
+.auth-card .auth-card-content .auth-button {
+  width: 100%;
+  background-color: #3182ce;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-card .auth-card-content .auth-button:hover {
+  background-color: #2b6cb0;
+}
+
+.auth-card .auth-card-content .auth-switch-text {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.auth-card .auth-card-content .auth-switch-text .auth-switch-link {
+  color: #63b3ed;
+  cursor: pointer;
+  margin-left: 0.25rem;
+}
