@@ -12,6 +12,7 @@ import ratingRoute from './routes/ratingRoute.js';
 import razorPayRouter from './routes/razorPayRouter.js';
 import imageRouter from './routes/imageRoutes.js';
 import cloudinarySetup from './config/cloudinarySetup.js';
+import adminUserRouter from './routes/adminUserRoute.js';
 
 dotenv.config();
 
@@ -55,6 +56,7 @@ app.use('/api/nested-category', nestedCtgRouter);
 app.use('/api/ratings', ratingRoute);
 app.use('/api/razorpay', razorPayRouter);
 app.use('/api/images', imageRouter)
+app.use('/api/admin-user', adminUserRouter)
 
 app.use((err, req, res, next) => {
     console.error(" Global Error:", err.message);

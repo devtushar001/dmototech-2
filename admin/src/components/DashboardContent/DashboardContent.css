@@ -1,0 +1,53 @@
+.dashboard-container .dashboard-content {
+  flex: 1;
+  padding: 20px;
+  background: #ecf0f1;
+}
+
+/* Header */
+.dashboard-container .dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-container .search-bar {
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #ccc;
+}
+
+.notification-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Stats Section */
+.stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+/* Sales Analytics */
+.sales-analytics {
+  margin-top: 20px;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart-placeholder {
+  text-align: center;
+  padding: 50px;
+  border: 2px dashed #bdc3c7;
+}

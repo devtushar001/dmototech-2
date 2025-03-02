@@ -1,37 +1,33 @@
 import React from "react";
-import Navbar from "./components/Navbar/Navbar";
-import Sidebar from "./components/Sidebar/Sidebar";
-import { Route, Routes, Link } from "react-router-dom";
-import Add from "./pages/Add/Add";
-import List from "./pages/List/List";
-import Orders from "./pages/Orders/Orders";
-import Panel from "./pages/Panel/Panel";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import NewAdd from "./pages/NewAdd/NewAdd";
+import { Link, Routes, Route } from "react-router-dom";
+import DashboardContent from "./components/DashboardContent/DashboardContent";
+import './App.css'
 import LoginSignup from "./pages/LoginSignup/LoginSignup";
+import Products from "./pages/Add/Products";
 
-function App() {
-
+const Dashboard = () => {
   const url = 'http://localhost:10019';
-
   return (
-    <>
-      <Navbar />
-      <hr />
-      <div className="app-content">
-        <Sidebar />
-        <Routes>
-          <Route path="/" element={<Panel url={url} />} />
-          <Route path="/add" element={<Add url={url} />} />
-          <Route path="/list" element={<List url={url} />} />
-          <Route path="/orders" element={<Orders url={url} />} />
-          <Route path="/new-add" element={<NewAdd url={url} />} />
-        </Routes>
-        <ToastContainer />
-      </div>
-    </>
-  )
-}
+    <div className="dashboard-container">
+      <aside className="sidebar">
+        <h2>shop.tshakya.in</h2>
+        <ul>
+          <Link to="/dashboard"><li className="active">Dashboard</li></Link>
+          <Link to="/analytics"><li>Analytics</li></Link>
+          <Link to="/products"><li>Products</li></Link>
+          <Link to="/others"><li>Orders</li></Link>
+          <Link to="/sales"><li>Sales</li></Link>
+          <Link to="/setting"><li>Setting</li></Link>
+          <Link to="/login"><li>Login</li></Link>
+        </ul>
+      </aside>
+      <Routes>
+        <Route path="/login" element={<LoginSignup url={url} />} />
+        <Route path="/dashboard" element={<DashboardContent url={url} />} />
+        <Route path="/products" element={<Products url={url} />} />
+      </Routes>
+    </div>
+  );
+};
 
-export default App;
+export default Dashboard;
