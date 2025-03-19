@@ -6,7 +6,7 @@ import LoginSignup from "./pages/LoginSignup/LoginSignup";
 import Products from "./pages/Products/Products";
 
 const Dashboard = () => {
-  const url = 'http://localhost:10019';
+  const url = 'http://localhost:10019' || "http://localhost:10019";
   const token = localStorage.getItem("token");
 
   const [active, setActive] = useState("dashboard");
@@ -31,8 +31,8 @@ const Dashboard = () => {
       </aside>
       <Routes>
         <Route path="/login" element={<LoginSignup url={url} token={token} />} />
-        <Route path="/dashboard" element={<DashboardContent url={url} token={token}/>} />
-        <Route path="/products" element={<Products url={url} token={token}/>} />
+        <Route path="/dashboard" element={<DashboardContent url={url} token={token} />} />
+        <Route path="/products" element={<Products url={url} token={token} />} />
       </Routes>
     </div>
   );
