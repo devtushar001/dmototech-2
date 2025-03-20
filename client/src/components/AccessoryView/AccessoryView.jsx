@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import { DochakiContext } from "../Context/Contact";
 
 const AccessoryView = (props) => {
-    // console.log(props)
     const { addToCart, removeFromCart, cartItem, url } = useContext(DochakiContext);
-    const { _id, name, reviews, reviewCount, category, price, description, images, additionalInfo } = props;
-    const [mainImage, setMainImage] = useState(url + "/images/" + images.mainImage);
+
+    const { _id, name, reviews, reviewCount, category, price, description,featuredImg, additionalInfo } = props;
+    useEffect(() => {
+        console.log(props);
+    },[])
+    // const [mainImage, setMainImage] = useState(url + "/images/" + images.mainImage);
     const [animationClass, setAnimationClass] = useState('');
     console.log(price)
     useEffect(() => {
@@ -18,20 +21,20 @@ const AccessoryView = (props) => {
         }, 500); // Time should match with animation duration
         window.scrollTo(0, 0);
         return () => clearTimeout(timer);
-    }, [mainImage]);
+    }, []);
 
     return (
         <>
             <div className="accessory-view">
                 <div className="accessory-view-left">
-                    <div className="accessory-view-img-list">
+                    {/* <div className="accessory-view-img-list">
                         <img onClick={() => { setMainImage(url + "/images/" + images.mainImage) }} src={url + "/images/" + images.mainImage} alt="" />
                         <img onClick={() => { setMainImage(url + "/images/" + images.secondImage) }} src={url + "/images/" + images.secondImage} alt="" />
                         <img onClick={() => { setMainImage(url + "/images/" + images.thirdImage) }} src={url + "/images/" + images.thirdImage} alt="" />
                         <img onClick={() => { setMainImage(url + "/images/" + images.fourthImage) }} src={url + "/images/" + images.fourthImage} alt="" />
-                    </div>
+                    </div> */}
                     <div className="accessory-view-img">
-                        <img src={mainImage} className={`accessory-view-main-image ${animationClass}`} alt="" />
+                        {/* <img src={mainImage} className={`accessory-view-main-image ${animationClass}`} alt="" /> */}
                     </div>
                 </div>
                 <div className="accessory-view-right">

@@ -5,6 +5,9 @@ import './AccessoriesDisplay.css'
 
 const AccessoriesDisplay = ({ category }) => {
     const { bikeAccessories } = useContext(DochakiContext);
+    useEffect(() => {
+        console.log(bikeAccessories)
+    }, [])
     const lastSixProducts = bikeAccessories.slice(-6);
     useEffect(()=>{
         window.scrollTo(0, 0);
@@ -16,11 +19,10 @@ const AccessoriesDisplay = ({ category }) => {
                 <div className="accessories-display-list">
                     {lastSixProducts.map((item, i) => {
                         if (category === "All" || category === item.category) {
-                            return <AccessoriesItem key={i} _id={item._id} name={item.name} category={item.category} subcategory={item.subcategory} price={item.price} images={item.images.mainImage} reviews={item.reviews} reviewCount={item.reviewCount} />
+                            return <AccessoriesItem key={i} _id={item._id} name={item.name} category={item.category} subcategory={item.subcategory} price={item.price}  reviews={item.reviews} reviewCount={item.reviewCount} />
                         } 
                     })}
                 </div>
-
             </div>
         </>
     )

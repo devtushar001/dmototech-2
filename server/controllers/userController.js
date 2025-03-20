@@ -10,12 +10,12 @@ const createToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET);
 }
 
-// console.log(createToken());
-// login user 
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
+    console.log(req.body);
     try {
         const user = await userModel.findOne({ email });
+        console.log(user);
         if (!user) {
             return res.json({
                 success: false,
@@ -24,6 +24,7 @@ const loginUser = async (req, res) => {
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
+        console.log(isMatch)
         if (!isMatch) {
             return res.json({
                 success: false,
@@ -46,9 +47,9 @@ const loginUser = async (req, res) => {
     }
 }
 
-// register user 
 const registerUser = async (req, res) => {
     const { name, email, password } = req.body;
+    console.log(req.body);
     try {
         if (!name || !email || !password) {
             return res.json({
@@ -64,7 +65,7 @@ const registerUser = async (req, res) => {
             })
         }
 
-        if (password.length < 7) {
+        if (password.length < 3) {
             return res.json({
                 success: false,
                 message: "Password should be longer than 7 character"
