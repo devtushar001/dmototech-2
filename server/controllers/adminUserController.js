@@ -28,6 +28,7 @@ export const adminUserSignupController = async (req, res) => {
 };
 
 export const adminUserLoginController = async (req, res) => {
+  console.log(req.body)
   try {
     const { adminUserEmail, adminUserPassword } = req.body;
 

@@ -17,6 +17,7 @@ const DochakiContextProvider = (props) => {
             if (!response.ok) {
                 toast.error(result.message);
             } else if (result.success) {
+                console.log(result.data)
                 setBikeAccessories(result.data); 
             } else {
                 toast.error(result.message);
