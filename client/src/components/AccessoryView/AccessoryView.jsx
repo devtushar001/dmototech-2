@@ -23,11 +23,11 @@ const AccessoryView = ({ item }) => {
             <div className="accessory-view-left">
                 <div className="accessory-view-img-list">
                     {item.galleryImage.map((singleImage, i) => (
-                        <img 
-                            key={i} 
-                            onClick={() => setMainImage(singleImage)} 
-                            src={singleImage} 
-                            alt="" 
+                        <img
+                            key={i}
+                            onClick={() => setMainImage(singleImage)}
+                            src={singleImage}
+                            alt=""
                         />
                     ))}
                 </div>
