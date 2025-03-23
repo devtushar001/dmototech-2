@@ -9,9 +9,9 @@ const Cart = () => {
     const navigate = useNavigate();
     // { top: 0, left: 0, behavior: "smooth" }
     useEffect(() => {
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
     }, []);
-    
+
     return (
         <>
             <div className="cart">
@@ -31,7 +31,7 @@ const Cart = () => {
                             return (
                                 <>
                                     <div className="cart-items-title cart-items-item">
-                                        <Link to={`/accessory/${item._id}`}><img src={`${url}/images/${item.images.mainImage}`} alt="" /></Link>
+                                        <Link to={`/accessory/${item._id}`}><img src={`${item.featuredImage}`} alt="" /></Link>
                                         <p>{item.name}</p>
                                         <p>&#8377;{item.price.newPrice}</p>
                                         <p>{cartItem[item._id]}</p>

@@ -3,8 +3,6 @@ import AccessoriesItem from "../AcceesoriesItem/AccessoriesItem";
 import './ShopAccessoryDisplay.css';
 
 const ShopAccessoryDisplay = ({ category, accessories, activeSubCtg }) => {
-    console.log('Active Sub-Category:', activeSubCtg);
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -16,26 +14,15 @@ const ShopAccessoryDisplay = ({ category, accessories, activeSubCtg }) => {
                 <div className="accessories-display-list">
                     {accessories.length > 0 ? (
                         accessories.map((item, i) => {
-                            // Improved condition with parentheses and strict comparison
                             if (
                                 category === "All" || 
                                 (category === item.category && (!activeSubCtg || activeSubCtg === item.subcategory))
                             ) {
                                 return (
-                                    <AccessoriesItem 
-                                        key={i}
-                                        _id={item._id}
-                                        name={item.name}
-                                        category={item.category}
-                                        subcategory={item.subcategory}
-                                        price={item.price}
-                                        images={item.images.mainImage}
-                                        reviews={item.reviews}
-                                        reviewCount={item.reviewCount}
-                                    />
+                                    <AccessoriesItem item={item}/>
                                 );
                             }
-                            return null; // Explicitly return null for unmatched conditions
+                            return null; 
                         })
                     ) : (
                         <p>No accessories found.</p>

@@ -1,13 +1,13 @@
-import { React, useContext} from "react";
+import { React, useContext } from "react";
 import { fassets } from "../../frontend_assets/assets";
 import { Link } from "react-router-dom";
 import './AccessoriesItem.css';
 // import { HashLink as Link } from "react-router-hash-link";
 import { DochakiContext } from "../Context/Contact";
 
-const AccessoriesItem = ({item}) => {
-  const {addToCart, removeFromCart, cartItem, url} = useContext(DochakiContext);
-  
+const AccessoriesItem = ({ item }) => {
+  const { addToCart, removeFromCart, cartItem, url } = useContext(DochakiContext);
+
   return (
     <>
       <div className="accessory-item">
@@ -17,7 +17,7 @@ const AccessoriesItem = ({item}) => {
             : <div className="accessory-item-counter">
               <img src={fassets.remove_icon_red} onClick={() => removeFromCart(item._id)} alt="" />
               <p>{cartItem[item._id]}</p>
-              <img className="adds" onClick={()=> addToCart(item._id)} src={fassets.add_icon_green} alt="" />
+              <img className="adds" onClick={() => addToCart(item._id)} src={fassets.add_icon_green} alt="" />
             </div>
           }
         </div>
