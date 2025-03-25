@@ -37,7 +37,12 @@
 }
 
 .accessory-view-img {
+    width: 520px;
     overflow: hidden;
+}
+
+.accessory-view-img img {
+    width: 100%;
 }
 
 @keyframes slideIn {

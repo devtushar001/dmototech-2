@@ -104,7 +104,7 @@ const RazorPayment = () => {
             }
 
             const paymentObject = new window.Razorpay({
-                key: "rzp_test_481XWM263JxEp8", // Replace with your Razorpay API key
+                key: "rzp_test_ZfSxM1yxM0XAj9", // Replace with your Razorpay API key
                 amount: result.razorpayOrder.amount, // Amount in paise
                 currency: result.razorpayOrder.currency,
                 order_id: result.razorpayOrder.id, // Razorpay Order ID

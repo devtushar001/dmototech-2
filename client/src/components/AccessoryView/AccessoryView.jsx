@@ -16,7 +16,7 @@ const AccessoryView = ({ item }) => {
 
         window.scrollTo(0, 0);
         return () => clearTimeout(timer);
-    }, [mainImage]); // Trigger animation on image change
+    }, [mainImage]); 
 
     return (
         <div className="accessory-view">

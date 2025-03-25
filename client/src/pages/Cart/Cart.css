@@ -101,11 +101,10 @@
     align-items: center;
     background-color: #eaeaea;
     padding: 5px;
-    border-radius: 4px;
 }
 
 .cart-promocode-input input {
-    flex: 1;
+    /* flex: 1; */
     background: transparent;
     border: none;
     outline: none;
@@ -119,7 +118,6 @@
     background: #000;
     border: none;
     color: #fff;
-    border-radius: 4px;
     cursor: pointer;
 }
 

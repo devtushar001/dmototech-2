@@ -104,17 +104,16 @@ const RazorPayment = () => {
             }
 
             const paymentObject = new window.Razorpay({
-                key: "rzp_test_481XWM263JxEp8", // Replace with your Razorpay API key
-                amount: result.razorpayOrder.amount, // Amount in paise
+                key: "rzp_test_ZfSxM1yxM0XAj9", 
+                amount: result.razorpayOrder.amount, 
                 currency: result.razorpayOrder.currency,
-                order_id: result.razorpayOrder.id, // Razorpay Order ID
+                order_id: result.razorpayOrder.id, 
                 handler: async function (response) {
-                    //   console.log("Razorpay Handler Response:", response);
 
                     const paymentDetails = {
-                        order_id: response.razorpay_order_id, // Razorpay Order ID
-                        payment_id: response.razorpay_payment_id, // Razorpay Payment ID
-                        signature: response.razorpay_signature, // Razorpay Signature
+                        order_id: response.razorpay_order_id, 
+                        payment_id: response.razorpay_payment_id, 
+                        signature: response.razorpay_signature,
                     };
 
                     if (!paymentDetails.order_id || !paymentDetails.signature) {

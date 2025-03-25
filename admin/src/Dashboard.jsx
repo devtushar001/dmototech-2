@@ -5,6 +5,7 @@ import './App.css'
 import LoginSignup from "./pages/LoginSignup/LoginSignup";
 import Products from "./pages/Products/Products";
 import AllProducts from './pages/AllProducts/AllProducts'
+import Categories from "./pages/Categories/Categories";
 
 const Dashboard = () => {
   const url = 'http://localhost:10019';
@@ -35,6 +36,7 @@ const Dashboard = () => {
         <Route path="/dashboard" element={<DashboardContent url={url} token={token} />} />
         <Route path="/products" element={<Products url={url} token={token} />} />
         <Route path="/all-products" element={<AllProducts url={url} token={token} />} />
+        <Route path="/category" element={<Categories url={url} token={token} />} />
       </Routes>
     </div>
   );
