@@ -30,7 +30,7 @@ const ProductList = ({ token, url }) => {
 
   return (
     <div className="product-grid">
-       {products.map((product) => (
+      {products.map((product) => (
         <div key={product._id} className="product-card">
           <img src={product.featuredImage} alt={product.name} className="product-image" />
           <h2 className="product-title">{product.name}</h2>
@@ -48,7 +48,7 @@ const ProductList = ({ token, url }) => {
             ))}
           </div>
         </div>
-      ))} 
+      ))}
     </div>
   );
 };
