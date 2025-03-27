@@ -1,68 +1,53 @@
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
   gap: 20px;
-  padding: 20px;
+  margin-left: 30px;
 }
 
 .product-grid .product-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  background: #fff;
+  width: 340px;
+  height: 450px;
+  border: 1px solid gray;
+  overflow: hidden;
+  position: relative;
 }
 
-.product-grid .product-card .product-image {
+
+
+.product-grid .product-card .content {
+  position: absolute;
+  top: 0;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.product-grid .product-card .product-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.product-grid .product-card .product-description {
-  color: #555;
-}
-
-.product-grid .product-card .product-old-price {
-  text-decoration: line-through;
-  color: red;
-}
-
-.product-grid .product-card .product-new-price {
-  font-weight: bold;
-  color: green;
-}
-
-.product-grid .product-card .product-tags {
+  cursor: pointer;
+  bottom: -140%;
   display: flex;
-  gap: 5px;
-  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all ease-in-out 0.4s;
+  color: rgb(0, 109, 109);
 }
 
-.product-grid .product-card .product-tag {
-  background: #eee;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.8rem;
+.product-grid .product-card .content:hover {
+  background: #fff9f961;
+  backdrop-filter: blur(20px);
+  bottom: 0%;
 }
 
-.product-grid .product-card .product-gallery {
-  display: flex;
-  gap: 5px;
-  overflow-x: auto;
-  margin-top: 10px;
+.product-grid .product-card img {
+  height: 100%;
 }
 
-.product-grid .product-card .gallery-image {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 5px;
+.product-grid .product-card .product-options {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  overflow: hidden;
+}
+
+.product-grid .product-card .product-options img {
+   width: 30px;
+   cursor: pointer;
 }

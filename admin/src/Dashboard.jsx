@@ -23,6 +23,7 @@ const Dashboard = () => {
         <h2>shop.tshakya.in</h2>
         <ul>
           <Link to="/dashboard"><li onClick={() => handleActive("dashboard")} className={active === "dashboard" ? "active" : ""}>Dashboard</li></Link>
+          <Link to="/all-products"><li onClick={() => handleActive("all-products")} className={active === "all-products" ? "active" : ""}>All Products</li></Link>
           <Link to="/products"><li onClick={() => handleActive("products")} className={active === "products" ? "active" : ""}>Products</li></Link>
           <Link to="/category"><li onClick={() => handleActive("categories")} className={active === "categories" ? "active" : ""}>Categories</li></Link>
           <Link to="/others"><li onClick={() => handleActive("orders")} className={active === "orders" ? "active" : ""}>Orders</li></Link>
@@ -31,6 +32,7 @@ const Dashboard = () => {
           <Link to="/login"><li onClick={() => handleActive("login")} className={active === "login" ? "active" : ""}>Login</li></Link>
         </ul>
       </aside>
+      <div className="conflict-setup"></div>
       <Routes>
         <Route path="/login" element={<LoginSignup url={url} token={token} />} />
         <Route path="/dashboard" element={<DashboardContent url={url} token={token} />} />

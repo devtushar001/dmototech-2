@@ -5,7 +5,8 @@ import a4 from "./send.png";
 import a5 from "./user.png";
 import a6 from "./whatsapp.png";
 import a7 from "./js.png";
-import a8 from "./cross.png"
+import a8 from "./cross.png";
+import a9 from "./bin.png";
 
 let nav_icon = {
   heart_icon: a1,
@@ -15,7 +16,8 @@ let nav_icon = {
   user_icon: a5,
   whatsapp_icon: a6,
   logo_icon: a7,
-  cross_icon: a8
+  cross_icon: a8,
+  bin_icon: a9
 }
 
 export default nav_icon;

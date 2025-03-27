@@ -8,6 +8,14 @@
 .dashboard-container .sidebar {
   width: 250px;
   padding: 20px;
+  position: fixed;
+  background: #d7ede7;
+  min-height: 100vh;
+}
+
+.dashboard-container .conflict-setup {
+  width: 300px;
+
 }
 
 .dashboard-container .sidebar h2 {
