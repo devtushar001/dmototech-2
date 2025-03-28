@@ -11,20 +11,24 @@ const Categories = ({ token, url }) => {
     menu_image: null
   });
 
+  // Fetch Categories (Optimized)
   const fetchCategories = async () => {
     try {
       const response = await fetch(`${url}/api/category/get`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
       const data = await response.json();
       if (!data.success) {
-        console.log(data);
         toast.error(data.message);
         return;
       }
-      setCategories(data.categories);
-      toast.success("Categories loaded successfully");
+
+      setCategories((prevCategories) => {
+        if (JSON.stringify(prevCategories) !== JSON.stringify(data.categories)) {
+          toast.success("Categories loaded successfully");
+        }
+        return data.categories;
+      });
     } catch (err) {
       toast.error(err.message || "Failed to fetch categories");
     }
@@ -33,13 +37,13 @@ const Categories = ({ token, url }) => {
   useEffect(() => {
     fetchCategories();
     window.scrollTo(0, 0);
-  }, [url]);
+  }, []);
 
   useEffect(() => {
-    // Update category image when a new image is selected
     setCategoryData((prev) => ({ ...prev, menu_image: menuImage.image }));
   }, [menuImage.image]);
 
+  // Delete Category (Optimized)
   const deleteCategory = async (catId) => {
     try {
       const response = await fetch(`${url}/api/category/delete`, {
@@ -50,18 +54,21 @@ const Categories = ({ token, url }) => {
         },
         body: JSON.stringify({ catId }),
       });
+
       const data = await response.json();
-      fetchCategories();
       if (!data.success) {
         toast.error(data.message);
         return;
       }
+
+      setCategories((prevCategories) => prevCategories.filter((cat) => cat._id !== catId));
       toast.success("Category deleted successfully");
     } catch (err) {
       toast.error(err.message || "Failed to delete category");
     }
   };
 
+  // Add New Category (Optimized)
   const newCategory = async () => {
     if (!categoryData.menu_name || !categoryData.menu_image) {
       toast.error("Category name and image are required!");
@@ -79,16 +86,20 @@ const Categories = ({ token, url }) => {
       });
 
       const data = await response.json();
-      fetchCategories();
+      console.log(data);
       if (!data.success) {
         toast.error(data.message);
         return;
       }
 
-      setCategories([...categories, data.category]);
+      setCategories((prevCategories) => [...prevCategories, data.category]);
       toast.success("Category created successfully!");
-      setCategoryData({ menu_name: "", menu_image: null });
-      setMenuImage({ type: "single", selection: false, image: null });
+
+      // Reset inputs AFTER updating UI
+      setTimeout(() => {
+        setCategoryData({ menu_name: "", menu_image: null });
+        setMenuImage({ type: "single", selection: false, image: null });
+      }, 300);
     } catch (err) {
       toast.error(err.message || "Failed to create category");
     }

@@ -6,6 +6,7 @@ import LoginSignup from "./pages/LoginSignup/LoginSignup";
 import Products from "./pages/Products/Products";
 import AllProducts from './pages/AllProducts/AllProducts'
 import Categories from "./pages/Categories/Categories";
+import Home from "./pages/Home/Home";
 
 const Dashboard = () => {
   const url = 'http://localhost:10019';
@@ -22,9 +23,10 @@ const Dashboard = () => {
       <aside className="sidebar">
         <h2>shop.tshakya.in</h2>
         <ul>
+          <Link to="/"><li onClick={() => handleActive("home")} className={active === "home" ? "active" : ""}>Home</li></Link>
           <Link to="/dashboard"><li onClick={() => handleActive("dashboard")} className={active === "dashboard" ? "active" : ""}>Dashboard</li></Link>
           <Link to="/all-products"><li onClick={() => handleActive("all-products")} className={active === "all-products" ? "active" : ""}>All Products</li></Link>
-          <Link to="/products"><li onClick={() => handleActive("products")} className={active === "products" ? "active" : ""}>Products</li></Link>
+          <Link to="/products"><li onClick={() => handleActive("products")} className={active === "products" ? "active" : ""}>Add Products</li></Link>
           <Link to="/category"><li onClick={() => handleActive("categories")} className={active === "categories" ? "active" : ""}>Categories</li></Link>
           <Link to="/others"><li onClick={() => handleActive("orders")} className={active === "orders" ? "active" : ""}>Orders</li></Link>
           <Link to="/sales"><li onClick={() => handleActive("sales")} className={active === "sales" ? "active" : ""}>Sales</li></Link>
@@ -34,6 +36,7 @@ const Dashboard = () => {
       </aside>
       <div className="conflict-setup"></div>
       <Routes>
+        <Route path="/" element={<Home url={url} token={token}/>} />
         <Route path="/login" element={<LoginSignup url={url} token={token} />} />
         <Route path="/dashboard" element={<DashboardContent url={url} token={token} />} />
         <Route path="/products" element={<Products url={url} token={token} />} />
