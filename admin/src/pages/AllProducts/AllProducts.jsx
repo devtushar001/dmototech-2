@@ -46,6 +46,7 @@ const ProductList = ({ token, url }) => {
             </div>  
           </div>
           <div className="product-options">
+            <img src={nav_icon.edit_icon} alt="" />
             <img src={nav_icon.bin_icon} alt="" />
           </div>
         </div>
