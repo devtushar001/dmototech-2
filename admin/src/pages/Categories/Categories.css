@@ -1,166 +1,81 @@
 .categories-container {
-  display: flex;
-  gap: 20px;
+  max-width: 100vw;
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
   padding: 20px;
-  max-width: 900px;
-  margin: auto;
-  font-family: Arial, sans-serif;
+  gap: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 100vh;
 }
 
-.title {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-/* Categories List */
-.all-categories {
+.categories-container .category-list {
   display: flex;
-  background: #f8f8f8;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 24px;
 }
 
-.no-categories {
-  text-align: center;
-  font-size: 16px;
-  color: #777;
+.categories-container .all-categories .category-list .category-item {
+  width: 320px;
+  height: 370px;
+  border: 1px solid gray;
+  overflow: hidden;
+  position: relative;
+
+
 }
 
-.category-list {
+.categories-container .all-categories .category-list .data {
+  position: absolute;
+  top: -370px;
+  height: 100%;
+  width: 100%;
+  background: #fff8f869;
+  backdrop-filter: blur(10px);
+  transition: all ease-in 0.3s;
   display: flex;
-  gap: 15px;
-  padding: 10px;
-}
-
-.category-item {
-  background: white;
-  border-radius: 8px;
-  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
 }
 
-.category-item:hover {
-  transform: scale(1.05);
+.categories-container .all-categories .category-list .category-item:hover .data {
+  top: 0;
 }
 
-.category-image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-
-.category-name {
-  font-size: 16px;
-  font-weight: bold;
-  color: #444;
-  margin-bottom: 8px;
-}
-
-.delete-button {
-  background: #ff4d4d;
-  color: white;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 5px;
+.categories-container .all-categories .category-list .category-item:hover .data button {
+  padding: 7px 20px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.delete-button:hover {
-  background: #cc0000;
-}
-
-/* Create New Category */
-.categories-container .create-new-categories {
-  background: #eef6f9;
-  padding: 20px;
-  border-radius: 8px;
-  display: flex;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.category-input {
+.categories-container .all-categories .category-list .category-item img {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
 }
 
-.featured-image {
-  margin-bottom: 15px;
+
+.categories-container .create-new-categories {
+  width: 100%;
+  display: flex;
+  border-left: 1px solid gray;
+padding-left: 30px;
+  flex-direction: column;
 }
 
-.select-image-button {
-  background: #1abc9c;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
+.categories-container .create-new-categories input,
+.categories-container .create-new-categories button {
+  height: 32px;
+  margin-bottom: 12px;
 }
 
-.select-image-button:hover {
-  background: #16a085;
+.categories-container .create-new-categories input {
+  padding-left: 12px;
 }
 
-.main-image {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-top: 10px;
-}
-
-.submit-button {
-  background: #3498db;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.submit-button:hover {
-  background: #2980b9;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .categories-container {
-    padding: 15px;
-  }
-  
-  .category-list {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  }
-
-  .category-item {
-    padding: 8px;
-  }
-
-  .category-image {
-    width: 80px;
-    height: 80px;
-  }
-
-  .main-image {
-    width: 100px;
-    height: 100px;
-  }
+.categories-container .create-new-categories img {
+  width: 100%;
 }

@@ -56,6 +56,7 @@ const Categories = ({ token, url }) => {
       });
 
       const data = await response.json();
+      console.log(data)
       if (!data.success) {
         toast.error(data.message);
         return;
@@ -108,7 +109,6 @@ const Categories = ({ token, url }) => {
   return (
     <div className="categories-container">
       <div className="all-categories">
-        <h2 className="title">Categories</h2>
         {categories.length === 0 ? (
           <p className="no-categories">No categories found.</p>
         ) : (
@@ -116,16 +116,17 @@ const Categories = ({ token, url }) => {
             {categories.map((category) => (
               <div key={category._id} className="category-item">
                 <img src={category.menu_image} alt={category.menu_name} className="category-image" />
-                <span className="category-name">{category.menu_name}</span>
-                <button className="delete-button" onClick={() => deleteCategory(category._id)}>
-                  Delete
-                </button>
+                <div className="data">
+                  <span className="category-name">{category.menu_name}</span>
+                  <button className="delete-button" onClick={() => deleteCategory(category._id)}>
+                    Delete
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         )}
       </div>
-
       <div className="create-new-categories">
         <input
           type="text"

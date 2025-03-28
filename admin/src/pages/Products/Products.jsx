@@ -50,13 +50,13 @@ const Products = ({ url, token }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Autherization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`
         },
         body: JSON.stringify(newProduct),
       });
 
       const result = await response.json();
-
+      console.log(result)
       if (!response.ok) {
         toast.error(result.message || "Failed to add accessory");
         return;
