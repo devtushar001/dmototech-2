@@ -51,6 +51,7 @@ export const createRazorPayOrderController = async (req, res) => {
 };
 
 export const verifyRazorPayOrderController = async (req, res) => {
+  console.log(req.body);
   try {
     const { order_id, payment_id, signature } = req.body;
     if (!order_id || !payment_id || !signature)
@@ -71,9 +72,12 @@ export const verifyRazorPayOrderController = async (req, res) => {
 
     if (expectedSignature === signature) {
       order.payment = true;
+      console.log(order);
       await order.save();
       return res.status(200).json({ success: true, message: "Payment verified successfully" });
     } else {
+      console.log("Failled Order")
+      console.log(order)
       return res.status(400).json({ success: false, message: "Payment verification failed" });
     }
   } catch (error) {

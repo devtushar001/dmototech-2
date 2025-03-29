@@ -7,6 +7,7 @@ import Products from "./pages/Products/Products";
 import AllProducts from './pages/AllProducts/AllProducts'
 import Categories from "./pages/Categories/Categories";
 import Home from "./pages/Home/Home";
+import Orders from "./pages/Orders/Orders";
 
 const Dashboard = () => {
   const url = 'http://localhost:10019';
@@ -28,10 +29,10 @@ const Dashboard = () => {
           <Link to="/all-products"><li onClick={() => handleActive("all-products")} className={active === "all-products" ? "active" : ""}>All Products</li></Link>
           <Link to="/products"><li onClick={() => handleActive("products")} className={active === "products" ? "active" : ""}>Add Products</li></Link>
           <Link to="/category"><li onClick={() => handleActive("categories")} className={active === "categories" ? "active" : ""}>Categories</li></Link>
-          <Link to="/others"><li onClick={() => handleActive("orders")} className={active === "orders" ? "active" : ""}>Orders</li></Link>
           <Link to="/sales"><li onClick={() => handleActive("sales")} className={active === "sales" ? "active" : ""}>Sales</li></Link>
           <Link to="/setting"><li onClick={() => handleActive("setting")} className={active === "setting" ? "active" : ""}>Setting</li></Link>
           <Link to="/login"><li onClick={() => handleActive("login")} className={active === "login" ? "active" : ""}>Login</li></Link>
+          <Link to="/orders"><li onClick={() => handleActive("orders")} className={active === "orders" ? "orders" : ""}>Orders</li></Link>
         </ul>
       </aside>
       <div className="conflict-setup"></div>
@@ -42,6 +43,7 @@ const Dashboard = () => {
         <Route path="/products" element={<Products url={url} token={token} />} />
         <Route path="/all-products" element={<AllProducts url={url} token={token} />} />
         <Route path="/category" element={<Categories url={url} token={token} />} />
+        <Route path="/orders" element={<Orders url={url} token={token} />} />
       </Routes>
     </div>
   );

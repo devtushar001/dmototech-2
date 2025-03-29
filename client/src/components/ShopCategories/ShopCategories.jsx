@@ -65,11 +65,11 @@ const ShopCategories = ({ category, setCategory, activeSubCtg, setActiveSubCtg }
                             onClick={() => {
                                 setCategory(prev => (prev === item.menu_name ? "All" : item.menu_name));
                                 setActiveCtg(item);
-                                setActiveSubCtg(null); // Reset sub-category on category change
+                                setActiveSubCtg(null); 
                             }}
                         >
                             <img
-                                src={`${url}/${item.menu_image}`}
+                                src={item.menu_image}
                                 alt={item.menu_name}
                             />
                             <p>{item.menu_name}</p>

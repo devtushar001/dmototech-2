@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import {fassets} from "../../../../client/src/frontend_assets/assets"
+import { fassets } from "../../../../client/src/frontend_assets/assets"
 import "./Orders.css";
 
-const Orders = ({ url }) => {
+const Orders = ({ url, token }) => {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -124,8 +124,7 @@ const Orders = ({ url }) => {
                   {order.items
                     .map(
                       (item, i) =>
-                        `${item.name} x ${item.quantity}${
-                          i < order.items.length - 1 ? ", " : ""
+                        `${item.name} x ${item.quantity}${i < order.items.length - 1 ? ", " : ""
                         }`
                     )
                     .join("")}

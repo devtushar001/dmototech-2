@@ -27,6 +27,18 @@ const DochakiContextProvider = (props) => {
         }
     };
 
+    const readDate = (date) =>
+        new Date(date).toLocaleString("en-IN", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+        });
+
     const addToCart = async (itemId) => {
         if (!token) {
             toast.error("Please log in to add items to your cart");
@@ -174,7 +186,8 @@ const DochakiContextProvider = (props) => {
         getTotalCartAmount,
         url,
         token,
-        setToken
+        setToken,
+        readDate
     };
 
     return (

@@ -66,12 +66,12 @@ const PlaceOrder = () => {
     const newOrderData = JSON.stringify(orderData, null, 2);
     try {
       const response = await fetch(`${url}/api/order/place`, {
-        method: "POST", // Specify the HTTP method
+        method: "POST", 
         headers: {
-          "Content-Type": "application/json", // Specify JSON content type
-          Authorization: `Bearer ${token}`, // Add the Authorization header with the token
+          "Content-Type": "application/json", 
+          Authorization: `Bearer ${token}`, 
         },
-        body: newOrderData, // Convert the orderData object to a JSON string
+        body: newOrderData, 
       });
       const result = await response.json();
       console.log(result)
@@ -196,6 +196,6 @@ const PlaceOrder = () => {
       </form>
     </>
   );
-};  
+};
 
 export default PlaceOrder;

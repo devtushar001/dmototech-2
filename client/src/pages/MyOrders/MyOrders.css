@@ -1,122 +1,116 @@
 .my-orders {
-    margin-top: 120px;
-    margin: 120px 0px 0px 0px;
+    max-width: 95vw;
+    margin: auto;
+    margin-top: 150px;
+    padding: 20px;
 }
 
-.my-orders h2 {
-    text-align: center;
-    margin-bottom: 20px;
+.my-orders .loading,
+.error {
+    font-size: 18px;
+    color: red;
+    margin: 20px 0;
 }
 
 .my-orders .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.my-orders .container .order-card {
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-}
-
-.my-orders-order {
-    margin: 20px auto;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 0.3fr 1.5fr 1fr 0.7fr 1fr 1fr;
     align-items: center;
-    gap: 20px;
-    font-size: 14px;
-    color: #454545;
-    border: 1px solid rgb(0, 112, 168);
-    border-radius: 8px;
-    max-width: 900px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+    transition: transform 0.2s ease-in-out;
 }
 
-#money,
-#fail {
-    backdrop-filter: blur(20px);
-    border-radius: 4px;
-    padding: 7px 17px;
-    font-size: 14px;
+.my-orders .container .order-card:hover {
+    transform: translateY(-5px);
 }
 
-#money {
-    color: #00be23;
-    background-color: rgba(0, 128, 0, 0.133);
-}
-
-#fail {
-    color: #de0000;
-    background-color: #ff000038;
-}
-
-.my-orders-order img {
+.my-orders .container .order-icon {
     width: 50px;
 }
 
-.my-orders-order p span {
-    color: rgb(0, 112, 168);
-}
-
-.my-orders-order p b {
+.my-orders .container .order-items {
+    font-size: 16px;
     font-weight: 500;
-    color: #454545;
+    color: #555;
 }
 
-.my-orders-order button {
-    padding: 12px 0px;
-    border-radius: 4px;
-    background-color: #ffe1e1e1;
-    cursor: pointer;
-    color: #454545;
-    border: none;
+.my-orders .container .order-price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.my-orders .container .paid {
+    color: green;
+}
+
+.my-orders .container .failed {
+    color: red;
+}
+
+.my-orders .container .order-count {
+    font-size: 14px;
+    color: #777;
+}
+
+.my-orders .order-card .item-list {
+    width: 100%;
+    background: #f8f8f8;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.my-orders .order-card .item-list .item {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
     font-size: 14px;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .my-orders-order {
-        grid-template-columns: 1fr; /* Stacks items vertically */
-        gap: 15px;
-        text-align: center;
-    }
-
-    .my-orders-order img {
-        margin: 0 auto;
-        width: 40px; /* Smaller image size */
-    }
-
-    #money,
-    #fail {
-        font-size: 12px; /* Adjust text size */
-        padding: 5px 10px;
-    }
-
-    .my-orders-order button {
-        width: 100%; /* Full width for buttons */
-        font-size: 14px;
-        padding: 10px;
-    }
+.order-id {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
 }
 
-@media (max-width: 480px) {
-    .my-orders h2 {
-        font-size: 18px; /* Smaller heading size */
-    }
+.order-status {
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
-    .my-orders-order {
-        padding: 15px;
-        font-size: 12px; /* Smaller font size for compact view */
-    }
+.status-dot {
+    color: green;
+    font-size: 20px;
+}
 
-    .my-orders-order img {
-        width: 35px; /* Further reduce image size */
-    }
+.track-button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-    #money,
-    #fail {
-        font-size: 11px; /* Adjust text size for labels */
-    }
+.track-button:hover {
+    background: #0056b3;
+}
 
-    .my-orders-order button {
-        font-size: 12px;
-        padding: 8px;
-    }
+.order-date {
+    font-size: 14px;
+    color: #888;
 }
