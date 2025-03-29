@@ -14,7 +14,7 @@ const nestedCtgSchema = new mongoose.Schema({
         type: [String],
         default: []
     }
-});
+}, { timestamps: true });
 
 // Create the model
 const nestedCtgModel = mongoose.models.Category || mongoose.model('Category', nestedCtgSchema);

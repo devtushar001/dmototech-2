@@ -71,7 +71,7 @@ const MyOrder = () => {
                                     ))}
                                 </div>
 
-                                <span className="order-id">{order.razorpayOrder.id.toUpperCase()}</span>
+                                <span className="order-id">Order Id : {order.razorpayOrder.id.toUpperCase()}</span>
 
                                 <p className="order-status">
                                     <span className="status-dot">&#x25cf;</span>
@@ -80,7 +80,7 @@ const MyOrder = () => {
 
                                 <button className="track-button" onClick={fetchOrders}>Track Order</button>
 
-                                <div className="order-date">{orderDate}</div>
+                                <div className="order-date">Place date : {orderDate}</div>
                             </div>
                         );
                     })}
